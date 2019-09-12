@@ -62,10 +62,10 @@ module driver(
 			br_load_cnt = 1;
 		end
 		else if (br_load_cnt == 1) begin
-			br_load_cnt == 0;
+			br_load_cnt = 0;
 		end
 	end
 
-	assign databus = br_load_cnt != 2'b00 ? br_staging ? 8'bz;
+	assign databus = br_load_cnt != 2'b00 ? br_staging : 8'bz;
 
 endmodule
