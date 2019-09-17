@@ -35,6 +35,14 @@ module driver(
 	reg [1:0] br_load_cnt;
 
 	always@ (posedge clk) begin
+		ioaddr = 2'b00;
+		if (tbr == 1) begin
+			iorw = 1'b0;
+		end
+		else if (rda == 1) begin
+			iorw = 1'b1;
+		end
+
 		if (br_cfg != br_cfg_old) begin
 			case (br_cfg)
 				2'b00: begin
@@ -64,6 +72,7 @@ module driver(
 		else if (br_load_cnt == 1) begin
 			br_load_cnt = 0;
 		end
+
 	end
 
 	assign databus = br_load_cnt != 2'b00 ? br_staging : 8'bz;

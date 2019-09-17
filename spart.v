@@ -45,7 +45,16 @@ module spart(
 	reg [3:0] tx_cnt;
 	assign tbr = tx_cnt == 0;
 
-	always@ (posedge clk) begin
+	reg transmit;
+
+	always@ (posedge clk, posedge rst) begin
+		if (rst) begin
+			txbuf <= 9'h1ff;
+			rxbuf <= 8'h21;
+			tx_cnt <= 4'h0;
+		end
+
+		transmit = 1'b0;
 		case (ioaddr)
 			2'b00: begin
 				if (iorw == 1'b0) begin
@@ -53,7 +62,7 @@ module spart(
 					tx_cnt = 10;
 				end 
 				else begin
-					// databus = rxbuf;
+					transmit = 1'b1;
 				end
 			end
 			2'b01: begin
@@ -85,6 +94,7 @@ module spart(
 	assign down_amount = 50000000 / ({db_high, db_low} << 4) - 1;
 	assign enable = down_count == 16'b0;
  
+	assign databus = transmit ? rxbuf : 8'hzz;
 
 	// always@ (posedge enable) begin
 	// 	down_count = {db_high, db_low};
