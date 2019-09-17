@@ -34,8 +34,9 @@ module driver(
 	reg [7:0] br_staging;
 	reg [1:0] br_load_cnt;
 
-	always@ (posedge clk) begin
+	always@ (posedge clk, negedge rst) begin
 		ioaddr = 2'b00;
+		iorw = 1'b1;
 		if (tbr == 1) begin
 			iorw = 1'b0;
 		end
@@ -43,34 +44,37 @@ module driver(
 			iorw = 1'b1;
 		end
 
-		if (br_cfg != br_cfg_old) begin
+		if (!rst || br_cfg != br_cfg_old) begin
 			case (br_cfg)
 				2'b00: begin
-					br <= 4800;
+					br = 4800;
 				end
 				2'b01: begin
-					br <= 9600;
+					br = 9600;
 				end
 				2'b10: begin
-					br <= 19200;
+					br = 19200;
 				end
 				2'b11: begin
-					br <= 38400;
+					br = 38400;
 				end
 			endcase
-			br_staging = br[7:0];
-			ioaddr = 2;
-			br_load_cnt = 2;
+			br_load_cnt <= 3;
 			br_cfg_old = br_cfg;
 		end
-
-		if (br_load_cnt == 2) begin
-			br_staging = br[15:8];
-			ioaddr = 3;
-			br_load_cnt = 1;
+		
+		if (br_load_cnt == 3) begin
+			br_staging <= br[7:0];
+			ioaddr <= 2;
+			br_load_cnt <= 2;
+		end
+		else if (br_load_cnt == 2) begin
+			br_staging <= br[15:8];
+			ioaddr <= 3;
+			br_load_cnt <= 1;
 		end
 		else if (br_load_cnt == 1) begin
-			br_load_cnt = 0;
+			br_load_cnt <= 0;
 		end
 
 	end
