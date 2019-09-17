@@ -22,7 +22,7 @@ module driver(
     input rst,
     input [1:0] br_cfg,
     output iocs,
-    output iorw,
+    output reg iorw,
     input rda,
     input tbr,
     output reg [1:0] ioaddr,
@@ -46,16 +46,16 @@ module driver(
 		if (br_cfg != br_cfg_old) begin
 			case (br_cfg)
 				2'b00: begin
-					br = 4800;
+					br <= 4800;
 				end
 				2'b01: begin
-					br = 9600;
+					br <= 9600;
 				end
 				2'b10: begin
-					br = 19200;
+					br <= 19200;
 				end
 				2'b11: begin
-					br = 38400;
+					br <= 38400;
 				end
 			endcase
 			br_staging = br[7:0];

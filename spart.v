@@ -47,13 +47,15 @@ module spart(
 
 	reg transmit;
 
-	always@ (posedge clk, posedge rst) begin
+	always_ff @(posedge clk, posedge rst) begin
 		if (rst) begin
 			txbuf <= 9'h1ff;
 			rxbuf <= 8'h21;
 			tx_cnt <= 4'h0;
 		end
+	end
 
+	always@ (posedge clk, posedge rst) begin
 		transmit = 1'b0;
 		case (ioaddr)
 			2'b00: begin
