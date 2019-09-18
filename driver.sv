@@ -45,12 +45,17 @@ module driver(
 	
 	//BR_old ff
 	always_ff @(posedge clk, negedge rst) begin
-		br_cfg_old <= br_cfg;
+		if (!rst)
+			br_cfg_old <= 2'b01;
+		else
+			br_cfg_old <= br_cfg;
 	end
 	
 	reg write_databus;
 	always_comb begin
 		nxt_state = INIT;
+		databus_staging = 8'hff;
+		ioaddr = 1;
 		write_databus = 0;
 		iorw = 1;
 		
@@ -77,14 +82,14 @@ module driver(
 			
 			LD_BR_HI: begin
 				databus_staging = br[15:8];
-				ioaddr = 2;
+				ioaddr = 3;
 				write_databus = 1;
 				nxt_state = LD_BR_LO;
 			end
 			
 			LD_BR_LO: begin
 				databus_staging = br[7:0];
-				ioaddr = 3;
+				ioaddr = 2;
 				write_databus = 1;
 				nxt_state = NORMAL;
 			end
@@ -94,57 +99,16 @@ module driver(
 				if (br_cfg != br_cfg_old)
 					nxt_state = LD_BR_HI;
 				else nxt_state = NORMAL;
+				
+				if (tbr && rda) begin
+					ioaddr = 2'b00;
+					iorw = 0;
+				end
 			end
 			
 		endcase
 	end
 
-	
-
-/* 	always@ (posedge clk, negedge rst) begin
-		ioaddr = 2'b00;
-		iorw = 1'b1;
-		if (tbr == 1) begin
-			iorw = 1'b0;
-		end
-		else if (rda == 1) begin
-			iorw = 1'b1;
-		end
-
-		if (!rst || br_cfg != br_cfg_old) begin
-			case (br_cfg)
-				2'b00: begin
-					br = 4800;
-				end
-				2'b01: begin
-					br = 9600;
-				end
-				2'b10: begin
-					br = 19200;
-				end
-				2'b11: begin
-					br = 38400;
-				end
-			endcase
-			br_load_cnt <= 3;
-			br_cfg_old = br_cfg;
-		end
-		
-		if (br_load_cnt == 3) begin
-			br_staging <= br[7:0];
-			ioaddr <= 2;
-			br_load_cnt <= 2;
-		end
-		else if (br_load_cnt == 2) begin
-			br_staging <= br[15:8];
-			ioaddr <= 3;
-			br_load_cnt <= 1;
-		end
-		else if (br_load_cnt == 1) begin
-			br_load_cnt <= 0;
-		end
-
-	end */
 
 	assign databus = write_databus ? databus_staging : 8'bz;
 
