@@ -1,7 +1,0 @@
-
-State Machine - |lab1_spart|driver:driver0|state
-Name state.NORMAL state.LD_BR_LO state.LD_BR_HI state.INIT 
-state.INIT 0 0 0 0 
-state.LD_BR_HI 0 0 1 1 
-state.LD_BR_LO 0 1 0 1 
-state.NORMAL 1 0 0 1 

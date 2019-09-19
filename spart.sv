@@ -47,9 +47,9 @@ module spart(
 	assign rda = 1;
 	
 	//reg enable;
-	always @(posedge clk, negedge rst) begin
+	always @(posedge clk, posedge rst) begin
 		//enable <= 0;
-		if (!rst) begin
+		if (rst) begin
 			txbuf <= 9'h1ff;
 			rxbuf <= 8'h21;
 			tx_cnt <= 4'hf;
@@ -94,6 +94,6 @@ module spart(
 		end
 	end
  
-	assign databus = write_databus ? rxbuf : 8'hzz;
+	assign databus = write_databus & ~iocs ? rxbuf : 8'hzz;
 
 endmodule

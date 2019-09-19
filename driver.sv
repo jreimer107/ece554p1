@@ -31,31 +31,35 @@ module driver(
 
 	reg [1:0] br_cfg_old;
 	reg [15:0] br;
-	reg [7:0] databus_staging;
+	reg [7:0] store;
+	wire [7:0] nxt_store;
 	reg [1:0] br_load_cnt;
 	
 	typedef enum reg [1:0] {INIT, LD_BR_HI, LD_BR_LO, NORMAL} state_t;
 	state_t state, nxt_state;
 	
 	//State ff
-	always_ff @(posedge clk, negedge rst) begin
-		if (!rst) state <= INIT;
+	always_ff @(posedge clk, posedge rst) begin
+		if (rst) state <= INIT;
 		else state <= nxt_state;
 	end
 	
 	//BR_old ff
-	always_ff @(posedge clk, negedge rst) begin
-		if (!rst)
+	always_ff @(posedge clk, posedge rst) begin
+		if (rst) begin
 			br_cfg_old <= 2'b01;
-		else
+			store <= 0;
+		end
+		else begin
 			br_cfg_old <= br_cfg;
+			store <= nxt_store;
 	end
 	
 	reg write_databus;
 	always_comb begin
 		nxt_state = INIT;
 		databus_staging = 8'hff;
-		ioaddr = 1;
+		ioaddr = 0;
 		write_databus = 0;
 		iorw = 1;
 		
@@ -99,6 +103,13 @@ module driver(
 				if (br_cfg != br_cfg_old)
 					nxt_state = LD_BR_HI;
 				else nxt_state = NORMAL;
+				
+				if (rda) begin
+					ioaddr = 0;
+					iorw = 1;
+					databus_staging = databus;
+				end
+
 				
 				if (tbr && rda) begin
 					ioaddr = 2'b00;
