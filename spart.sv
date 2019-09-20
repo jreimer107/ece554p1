@@ -38,6 +38,7 @@ module spart(
 	reg [7:0] rxbuf;
 	reg [7:0] status;
 	reg [15:0] down_count;
+	reg [3:0] enable_count;
 
 	reg [3:0] tx_cnt;
 	assign tbr = tx_cnt == 0;
@@ -53,27 +54,36 @@ module spart(
 			txbuf <= 9'h1ff;
 			rxbuf <= 8'h21;
 			tx_cnt <= 4'hf;
-			db_high <= 8'h25;
-			db_low <= 8'h80;
-			down_count <= 50000000 / (9600 << 4) - 1;
+			enable_count <= 4'hf;
+			db_high <= 8'h01;
+			db_low <= 8'h44;
+			down_count <= 16'h0144;
 		end
 		else begin
 			if (ioaddr == 2'b10) begin
-				down_count <= 50000000 / ({db_high, databus} << 4) - 1;
+				down_count <= {db_high, databus};
+				enable_count <= 4'hf;
 			end
-			else if (down_count != 0)
+			else if (down_count != 0) begin
 				down_count <= down_count - 1;
+			end
 			else begin
-				down_count <= 50000000 / ({db_high, db_low} << 4) - 1;
-				txbuf <= {1'b1, txbuf[8:1]};
-				tx_cnt <= tx_cnt == 0 ? 0 : tx_cnt - 1;
+				down_count <= {db_high, db_low};
+				if (enable_count != 0) begin
+					enable_count <= enable_count - 1;
+				end
+				else begin
+					enable_count <= 4'hf;
+					txbuf <= {1'b1, txbuf[8:1]};
+					tx_cnt <= tx_cnt == 0 ? 0 : tx_cnt - 1;
+				end
 			end
 		
 			case (ioaddr)
 				2'b00: begin
 					if (iorw == 1'b0) begin
 						txbuf <= {rxbuf, 1'b0};
-						tx_cnt <= 10;
+						tx_cnt <= 11;
 					end 
 					else begin
 						// write_databus = 1'b1;

@@ -59,23 +59,23 @@ module driver(
 	always_comb begin
 		nxt_state = INIT;
 		nxt_store = 8'hff;
-		ioaddr = 0;
+		ioaddr = 1;
 		iocs = 0;
 		iorw = 1;
 		
 		//Determine br from br_cfg
 		case (br_cfg)
 			2'b00:
-				br = 4800;
+				br = 16'h028a;
 				
 			2'b01:
-				br = 9600;
+				br = 16'h0144;
 				
 			2'b10:
-				br = 19200;
+				br = 16'h00a1;
 
 			2'b11:
-				br = 38400;
+				br = 16'h0050;
 
 		endcase
 	
@@ -104,19 +104,17 @@ module driver(
 			end
 			
 			NORMAL: begin
-				ioaddr = 1;
+				ioaddr = 0;
 				if (br_cfg != br_cfg_old)
 					nxt_state = LD_BR_HI;
 				else nxt_state = NORMAL;
 				
 				if (rda) begin
-					ioaddr = 0;
 					iorw = 1;
 					nxt_store = databus;
 				end
 
 				if (tbr) begin
-					ioaddr = 0;
 					iorw = 0;
 					iocs = 1;
 				end
