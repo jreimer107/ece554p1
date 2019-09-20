@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab1_spart
-Thu Sep 19 18:28:44 2019
+Thu Sep 19 19:14:18 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -18,8 +18,8 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  10. General Register Statistics
  11. Inverted Register Statistics
  12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for Inferred Entity Instance: spart:spart0|lpm_divide:Div0
- 14. Parameter Settings for Inferred Entity Instance: spart:spart0|lpm_divide:Div1
+ 13. Parameter Settings for Inferred Entity Instance: spart:spart0|lpm_divide:Div1
+ 14. Parameter Settings for Inferred Entity Instance: spart:spart0|lpm_divide:Div0
  15. Post-Synthesis Netlist Statistics for Top Partition
  16. Elapsed Time Per Partition
  17. Analysis & Synthesis Messages
@@ -49,13 +49,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Sep 19 18:28:44 2019       ;
+; Analysis & Synthesis Status     ; Successful - Thu Sep 19 19:14:18 2019       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; lab1_spart                                  ;
 ; Top-level Entity Name           ; lab1_spart                                  ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 45                                          ;
+; Total registers                 ; 60                                          ;
 ; Total pins                      ; 106                                         ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -195,31 +195,31 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                           ;
-+---------------------------------------------+-------------------------+
-; Resource                                    ; Usage                   ;
-+---------------------------------------------+-------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 696                     ;
-;                                             ;                         ;
-; Combinational ALUT usage for logic          ; 1371                    ;
-;     -- 7 input functions                    ; 0                       ;
-;     -- 6 input functions                    ; 20                      ;
-;     -- 5 input functions                    ; 379                     ;
-;     -- 4 input functions                    ; 364                     ;
-;     -- <=3 input functions                  ; 608                     ;
-;                                             ;                         ;
-; Dedicated logic registers                   ; 45                      ;
-;                                             ;                         ;
-; I/O pins                                    ; 106                     ;
-;                                             ;                         ;
-; Total DSP Blocks                            ; 0                       ;
-;                                             ;                         ;
-; Maximum fan-out node                        ; spart:spart0|db_high[7] ;
-; Maximum fan-out                             ; 66                      ;
-; Total fan-out                               ; 5540                    ;
-; Average fan-out                             ; 3.33                    ;
-+---------------------------------------------+-------------------------+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                               ;
++---------------------------------------------+-----------------------------+
+; Resource                                    ; Usage                       ;
++---------------------------------------------+-----------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 768                         ;
+;                                             ;                             ;
+; Combinational ALUT usage for logic          ; 1497                        ;
+;     -- 7 input functions                    ; 1                           ;
+;     -- 6 input functions                    ; 37                          ;
+;     -- 5 input functions                    ; 491                         ;
+;     -- 4 input functions                    ; 422                         ;
+;     -- <=3 input functions                  ; 546                         ;
+;                                             ;                             ;
+; Dedicated logic registers                   ; 60                          ;
+;                                             ;                             ;
+; I/O pins                                    ; 106                         ;
+;                                             ;                             ;
+; Total DSP Blocks                            ; 0                           ;
+;                                             ;                             ;
+; Maximum fan-out node                        ; driver:driver0|Selector10~0 ;
+; Maximum fan-out                             ; 84                          ;
+; Total fan-out                               ; 6441                        ;
+; Average fan-out                             ; 3.57                        ;
++---------------------------------------------+-----------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -227,44 +227,44 @@ refer to the applicable agreement for further details.
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                      ; Entity Name         ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |lab1_spart                               ; 1371 (12)           ; 45 (0)                    ; 0                 ; 0          ; 106  ; 0            ; |lab1_spart                                                                                                              ; lab1_spart          ; work         ;
-;    |driver:driver0|                       ; 15 (15)             ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|driver:driver0                                                                                               ; driver              ; work         ;
-;    |spart:spart0|                         ; 1344 (89)           ; 39 (39)                   ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0                                                                                                 ; spart               ; work         ;
-;       |lpm_divide:Div0|                   ; 685 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_3dm:auto_generated|  ; 685 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div0|lpm_divide_3dm:auto_generated                                                   ; lpm_divide_3dm      ; work         ;
-;             |sign_div_unsign_9nh:divider| ; 685 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
-;                |alt_u_div_o2f:divider|    ; 685 (685)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f       ; work         ;
-;       |lpm_divide:Div1|                   ; 570 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_3dm:auto_generated|  ; 570 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div1|lpm_divide_3dm:auto_generated                                                   ; lpm_divide_3dm      ; work         ;
-;             |sign_div_unsign_9nh:divider| ; 570 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div1|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
-;                |alt_u_div_o2f:divider|    ; 570 (570)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div1|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f       ; work         ;
+; |lab1_spart                               ; 1497 (12)           ; 60 (0)                    ; 0                 ; 0          ; 106  ; 0            ; |lab1_spart                                                                                                              ; lab1_spart          ; work         ;
+;    |driver:driver0|                       ; 15 (15)             ; 15 (15)                   ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|driver:driver0                                                                                               ; driver              ; work         ;
+;    |spart:spart0|                         ; 1470 (91)           ; 45 (45)                   ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0                                                                                                 ; spart               ; work         ;
+;       |lpm_divide:Div0|                   ; 675 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_3dm:auto_generated|  ; 675 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div0|lpm_divide_3dm:auto_generated                                                   ; lpm_divide_3dm      ; work         ;
+;             |sign_div_unsign_9nh:divider| ; 675 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
+;                |alt_u_div_o2f:divider|    ; 675 (675)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f       ; work         ;
+;       |lpm_divide:Div1|                   ; 704 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_3dm:auto_generated|  ; 704 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div1|lpm_divide_3dm:auto_generated                                                   ; lpm_divide_3dm      ; work         ;
+;             |sign_div_unsign_9nh:divider| ; 704 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div1|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
+;                |alt_u_div_o2f:divider|    ; 704 (704)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div1|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f       ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+------------------------------------------------------------------------------+
-; State Machine - |lab1_spart|driver:driver0|state                             ;
-+----------------+--------------+----------------+----------------+------------+
-; Name           ; state.NORMAL ; state.LD_BR_LO ; state.LD_BR_HI ; state.INIT ;
-+----------------+--------------+----------------+----------------+------------+
-; state.INIT     ; 0            ; 0              ; 0              ; 0          ;
-; state.LD_BR_HI ; 0            ; 0              ; 1              ; 1          ;
-; state.LD_BR_LO ; 0            ; 1              ; 0              ; 1          ;
-; state.NORMAL   ; 1            ; 0              ; 0              ; 1          ;
-+----------------+--------------+----------------+----------------+------------+
++-------------------------------------------------------------------------------------------------+
+; State Machine - |lab1_spart|driver:driver0|state                                                ;
++-----------------+-----------------+----------------+----------------+------------+--------------+
+; Name            ; state.SND_BR_LO ; state.LD_BR_LO ; state.LD_BR_HI ; state.INIT ; state.NORMAL ;
++-----------------+-----------------+----------------+----------------+------------+--------------+
+; state.INIT      ; 0               ; 0              ; 0              ; 0          ; 0            ;
+; state.LD_BR_HI  ; 0               ; 0              ; 1              ; 1          ; 0            ;
+; state.LD_BR_LO  ; 0               ; 1              ; 0              ; 1          ; 0            ;
+; state.SND_BR_LO ; 1               ; 0              ; 0              ; 1          ; 0            ;
+; state.NORMAL    ; 0               ; 0              ; 0              ; 1          ; 1            ;
++-----------------+-----------------+----------------+----------------+------------+--------------+
 
 
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; spart:spart0|db_low[0..5]             ; Stuck at GND due to stuck port data_in ;
-; driver:driver0|state~4                ; Lost fanout                            ;
-; driver:driver0|state~5                ; Lost fanout                            ;
-; Total Number of Removed Registers = 8 ;                                        ;
-+---------------------------------------+----------------------------------------+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; driver:driver0|state~4                ; Lost fanout        ;
+; driver:driver0|state~5                ; Lost fanout        ;
+; Total Number of Removed Registers = 2 ;                    ;
++---------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -272,12 +272,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 45    ;
+; Total registers                              ; 60    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 45    ;
+; Number of registers using Synchronous Load   ; 16    ;
+; Number of registers using Asynchronous Clear ; 60    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 18    ;
+; Number of registers using Clock Enable       ; 24    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -287,22 +287,22 @@ Encoding Type:  One-Hot
 +-----------------------------------------+---------+
 ; Inverted Register                       ; Fan out ;
 +-----------------------------------------+---------+
-; spart:spart0|txbuf[0]                   ; 2       ;
-; driver:driver0|br_cfg_old[0]            ; 1       ;
-; spart:spart0|txbuf[1]                   ; 1       ;
-; spart:spart0|tx_cnt[3]                  ; 4       ;
-; spart:spart0|tx_cnt[2]                  ; 4       ;
-; spart:spart0|tx_cnt[1]                  ; 5       ;
-; spart:spart0|tx_cnt[0]                  ; 6       ;
 ; spart:spart0|down_count[2]              ; 2       ;
 ; spart:spart0|down_count[8]              ; 2       ;
 ; spart:spart0|down_count[6]              ; 2       ;
+; spart:spart0|txbuf[0]                   ; 2       ;
+; spart:spart0|txbuf[1]                   ; 1       ;
+; spart:spart0|tx_cnt[3]                  ; 12      ;
+; spart:spart0|tx_cnt[2]                  ; 12      ;
+; spart:spart0|tx_cnt[1]                  ; 13      ;
+; spart:spart0|tx_cnt[0]                  ; 14      ;
+; driver:driver0|br_cfg_old[0]            ; 2       ;
 ; spart:spart0|txbuf[2]                   ; 1       ;
 ; spart:spart0|txbuf[3]                   ; 1       ;
-; spart:spart0|db_high[0]                 ; 42      ;
+; spart:spart0|db_low[7]                  ; 18      ;
+; spart:spart0|db_high[0]                 ; 31      ;
 ; spart:spart0|db_high[2]                 ; 27      ;
 ; spart:spart0|db_high[5]                 ; 22      ;
-; spart:spart0|db_low[7]                  ; 16      ;
 ; spart:spart0|txbuf[4]                   ; 1       ;
 ; spart:spart0|txbuf[5]                   ; 1       ;
 ; spart:spart0|txbuf[6]                   ; 1       ;
@@ -317,16 +317,17 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
-; 3:1                ; 13 bits   ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; Yes        ; |lab1_spart|spart:spart0|down_count[5] ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |lab1_spart|spart:spart0|txbuf[0]      ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |lab1_spart|spart:spart0|down_count[6] ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |lab1_spart|spart:spart0|tx_cnt[3]     ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |lab1_spart|driver:driver0|Selector1   ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 26 LEs               ; 0 LEs                  ; Yes        ; |lab1_spart|spart:spart0|down_count[1] ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |lab1_spart|driver:driver0|store[3]    ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |lab1_spart|driver:driver0|store[7]    ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |lab1_spart|spart:spart0|txbuf[2]      ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |lab1_spart|spart:spart0|down_count[2] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |lab1_spart|spart:spart0|tx_cnt[2]     ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
 
 
 +-------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: spart:spart0|lpm_divide:Div0 ;
+; Parameter Settings for Inferred Entity Instance: spart:spart0|lpm_divide:Div1 ;
 +------------------------+----------------+-------------------------------------+
 ; Parameter Name         ; Value          ; Type                                ;
 +------------------------+----------------+-------------------------------------+
@@ -349,7 +350,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +-------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: spart:spart0|lpm_divide:Div1 ;
+; Parameter Settings for Inferred Entity Instance: spart:spart0|lpm_divide:Div0 ;
 +------------------------+----------------+-------------------------------------+
 ; Parameter Name         ; Value          ; Type                                ;
 +------------------------+----------------+-------------------------------------+
@@ -376,35 +377,38 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 45                          ;
-;     CLR               ; 27                          ;
-;     ENA CLR           ; 18                          ;
+; arriav_ff             ; 60                          ;
+;     CLR               ; 20                          ;
+;     CLR SLD           ; 16                          ;
+;     ENA CLR           ; 24                          ;
 ; arriav_io_obuf        ; 36                          ;
-; arriav_lcell_comb     ; 1379                        ;
-;     arith             ; 665                         ;
-;         0 data inputs ; 78                          ;
-;         1 data inputs ; 78                          ;
-;         2 data inputs ; 72                          ;
-;         3 data inputs ; 10                          ;
-;         4 data inputs ; 151                         ;
-;         5 data inputs ; 276                         ;
-;     normal            ; 694                         ;
+; arriav_lcell_comb     ; 1504                        ;
+;     arith             ; 732                         ;
+;         0 data inputs ; 94                          ;
+;         1 data inputs ; 60                          ;
+;         2 data inputs ; 84                          ;
+;         3 data inputs ; 14                          ;
+;         4 data inputs ; 98                          ;
+;         5 data inputs ; 382                         ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 757                         ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 11                          ;
-;         2 data inputs ; 192                         ;
-;         3 data inputs ; 155                         ;
-;         4 data inputs ; 211                         ;
-;         5 data inputs ; 103                         ;
-;         6 data inputs ; 20                          ;
-;     shared            ; 20                          ;
-;         0 data inputs ; 16                          ;
+;         1 data inputs ; 13                          ;
+;         2 data inputs ; 133                         ;
+;         3 data inputs ; 141                         ;
+;         4 data inputs ; 322                         ;
+;         5 data inputs ; 109                         ;
+;         6 data inputs ; 37                          ;
+;     shared            ; 14                          ;
+;         0 data inputs ; 10                          ;
 ;         1 data inputs ; 1                           ;
-;         2 data inputs ; 1                           ;
+;         3 data inputs ; 1                           ;
 ;         4 data inputs ; 2                           ;
 ; boundary_port         ; 106                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 63.90                       ;
-; Average LUT depth     ; 52.18                       ;
+; Max LUT depth         ; 72.10                       ;
+; Average LUT depth     ; 60.64                       ;
 +-----------------------+-----------------------------+
 
 
@@ -423,7 +427,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Sep 19 18:28:32 2019
+    Info: Processing started: Thu Sep 19 19:14:05 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab1_spart -c lab1_spart
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -452,21 +456,20 @@ Info (10041): Inferred latch for "rxbuf[5]" at spart.sv(50) File: C:/Users/ECE_S
 Info (10041): Inferred latch for "rxbuf[6]" at spart.sv(50) File: C:/Users/ECE_STUDENT/Documents/ece554p1/spart.sv Line: 50
 Info (10041): Inferred latch for "rxbuf[7]" at spart.sv(50) File: C:/Users/ECE_STUDENT/Documents/ece554p1/spart.sv Line: 50
 Info (12128): Elaborating entity "driver" for hierarchy "driver:driver0" File: C:/Users/ECE_STUDENT/Documents/ece554p1/lab1_spart.v Line: 83
-Warning (10034): Output port "iocs" at driver.sv(24) has no driver File: C:/Users/ECE_STUDENT/Documents/ece554p1/driver.sv Line: 24
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
-    Warning (13048): Converted tri-state node "databus[7]" into a selector File: C:/Users/ECE_STUDENT/Documents/ece554p1/spart.sv Line: 62
-    Warning (13048): Converted tri-state node "databus[6]" into a selector File: C:/Users/ECE_STUDENT/Documents/ece554p1/spart.sv Line: 62
-    Warning (13048): Converted tri-state node "databus[5]" into a selector File: C:/Users/ECE_STUDENT/Documents/ece554p1/spart.sv Line: 62
-    Warning (13048): Converted tri-state node "databus[4]" into a selector File: C:/Users/ECE_STUDENT/Documents/ece554p1/spart.sv Line: 62
-    Warning (13048): Converted tri-state node "databus[3]" into a selector File: C:/Users/ECE_STUDENT/Documents/ece554p1/spart.sv Line: 62
-    Warning (13048): Converted tri-state node "databus[2]" into a selector File: C:/Users/ECE_STUDENT/Documents/ece554p1/spart.sv Line: 62
-    Warning (13048): Converted tri-state node "databus[1]" into a selector File: C:/Users/ECE_STUDENT/Documents/ece554p1/spart.sv Line: 62
-    Warning (13048): Converted tri-state node "databus[0]" into a selector File: C:/Users/ECE_STUDENT/Documents/ece554p1/spart.sv Line: 62
+    Warning (13048): Converted tri-state node "databus[7]" into a selector File: C:/Users/ECE_STUDENT/Documents/ece554p1/driver.sv Line: 82
+    Warning (13048): Converted tri-state node "databus[6]" into a selector File: C:/Users/ECE_STUDENT/Documents/ece554p1/driver.sv Line: 82
+    Warning (13048): Converted tri-state node "databus[5]" into a selector File: C:/Users/ECE_STUDENT/Documents/ece554p1/driver.sv Line: 82
+    Warning (13048): Converted tri-state node "databus[4]" into a selector File: C:/Users/ECE_STUDENT/Documents/ece554p1/driver.sv Line: 82
+    Warning (13048): Converted tri-state node "databus[3]" into a selector File: C:/Users/ECE_STUDENT/Documents/ece554p1/driver.sv Line: 82
+    Warning (13048): Converted tri-state node "databus[2]" into a selector File: C:/Users/ECE_STUDENT/Documents/ece554p1/driver.sv Line: 82
+    Warning (13048): Converted tri-state node "databus[1]" into a selector File: C:/Users/ECE_STUDENT/Documents/ece554p1/driver.sv Line: 82
+    Warning (13048): Converted tri-state node "databus[0]" into a selector File: C:/Users/ECE_STUDENT/Documents/ece554p1/driver.sv Line: 82
 Info (278001): Inferred 2 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "spart:spart0|Div0" File: C:/Users/ECE_STUDENT/Documents/ece554p1/spart.sv Line: 62
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "spart:spart0|Div1" File: C:/Users/ECE_STUDENT/Documents/ece554p1/spart.sv Line: 67
-Info (12130): Elaborated megafunction instantiation "spart:spart0|lpm_divide:Div0" File: C:/Users/ECE_STUDENT/Documents/ece554p1/spart.sv Line: 62
-Info (12133): Instantiated megafunction "spart:spart0|lpm_divide:Div0" with the following parameter: File: C:/Users/ECE_STUDENT/Documents/ece554p1/spart.sv Line: 62
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "spart:spart0|Div0" File: C:/Users/ECE_STUDENT/Documents/ece554p1/spart.sv Line: 62
+Info (12130): Elaborated megafunction instantiation "spart:spart0|lpm_divide:Div1" File: C:/Users/ECE_STUDENT/Documents/ece554p1/spart.sv Line: 67
+Info (12133): Instantiated megafunction "spart:spart0|lpm_divide:Div1" with the following parameter: File: C:/Users/ECE_STUDENT/Documents/ece554p1/spart.sv Line: 67
     Info (12134): Parameter "LPM_WIDTHN" = "26"
     Info (12134): Parameter "LPM_WIDTHD" = "20"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -477,12 +480,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_9nh File: C:/Users/ECE_STUDENT/Documents/ece554p1/db/sign_div_unsign_9nh.tdf Line: 24
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_o2f.tdf
     Info (12023): Found entity 1: alt_u_div_o2f File: C:/Users/ECE_STUDENT/Documents/ece554p1/db/alt_u_div_o2f.tdf Line: 22
-Info (12130): Elaborated megafunction instantiation "spart:spart0|lpm_divide:Div1" File: C:/Users/ECE_STUDENT/Documents/ece554p1/spart.sv Line: 67
-Info (12133): Instantiated megafunction "spart:spart0|lpm_divide:Div1" with the following parameter: File: C:/Users/ECE_STUDENT/Documents/ece554p1/spart.sv Line: 67
-    Info (12134): Parameter "LPM_WIDTHN" = "26"
-    Info (12134): Parameter "LPM_WIDTHD" = "20"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
     Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[3]" and its non-tri-state driver. File: C:/Users/ECE_STUDENT/Documents/ece554p1/lab1_spart.v Line: 33
 Warning (13039): The following bidirectional pins have no drivers
@@ -578,15 +575,15 @@ Warning (21074): Design contains 14 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/ECE_STUDENT/Documents/ece554p1/lab1_spart.v Line: 29
     Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/ECE_STUDENT/Documents/ece554p1/lab1_spart.v Line: 29
     Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/ECE_STUDENT/Documents/ece554p1/lab1_spart.v Line: 29
-Info (21057): Implemented 1486 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1619 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 18 input pins
     Info (21059): Implemented 52 output pins
     Info (21060): Implemented 36 bidirectional pins
-    Info (21061): Implemented 1380 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 109 warnings
-    Info: Peak virtual memory: 4887 megabytes
-    Info: Processing ended: Thu Sep 19 18:28:44 2019
-    Info: Elapsed time: 00:00:12
+    Info (21061): Implemented 1513 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 108 warnings
+    Info: Peak virtual memory: 4889 megabytes
+    Info: Processing ended: Thu Sep 19 19:14:18 2019
+    Info: Elapsed time: 00:00:13
     Info: Total CPU time (on all processors): 00:00:21
 
 

@@ -1,5 +1,5 @@
 Fitter report for lab1_spart
-Thu Sep 19 18:29:43 2019
+Thu Sep 19 19:04:53 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -63,15 +63,15 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +---------------------------------+---------------------------------------------+
-; Fitter Status                   ; Successful - Thu Sep 19 18:29:43 2019       ;
+; Fitter Status                   ; Successful - Thu Sep 19 19:04:53 2019       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; lab1_spart                                  ;
 ; Top-level Entity Name           ; lab1_spart                                  ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 715 / 32,070 ( 2 % )                        ;
-; Total registers                 ; 50                                          ;
+; Logic utilization (in ALMs)     ; 797 / 32,070 ( 2 % )                        ;
+; Total registers                 ; 78                                          ;
 ; Total pins                      ; 106 / 457 ( 23 % )                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0 / 4,065,280 ( 0 % )                       ;
@@ -153,31 +153,44 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 6           ;
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
-; Average used               ; 1.07        ;
+; Average used               ; 1.08        ;
 ; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   1.7%      ;
-;     Processor 3            ;   1.4%      ;
-;     Processor 4            ;   1.4%      ;
-;     Processor 5            ;   1.4%      ;
-;     Processor 6            ;   1.3%      ;
+;     Processor 2            ;   1.9%      ;
+;     Processor 3            ;   1.8%      ;
+;     Processor 4            ;   1.7%      ;
+;     Processor 5            ;   1.5%      ;
+;     Processor 6            ;   1.5%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter Netlist Optimizations                                                                                                                                                                                                          ;
-+---------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+-------------------------------------+------------------+-----------------------+
-; Node                      ; Action     ; Operation                                         ; Reason                     ; Node Port ; Node Port Name ; Destination Node                    ; Destination Port ; Destination Port Name ;
-+---------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+-------------------------------------+------------------+-----------------------+
-; CLOCK_50~inputCLKENA0     ; Created    ; Placement                                         ; Fitter Periphery Placement ;           ;                ;                                     ;                  ;                       ;
-; driver:driver0|state.INIT ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; driver:driver0|state.INIT~DUPLICATE ;                  ;                       ;
-; spart:spart0|tx_cnt[0]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|tx_cnt[0]~DUPLICATE    ;                  ;                       ;
-; spart:spart0|tx_cnt[1]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|tx_cnt[1]~DUPLICATE    ;                  ;                       ;
-; spart:spart0|tx_cnt[2]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|tx_cnt[2]~DUPLICATE    ;                  ;                       ;
-; spart:spart0|tx_cnt[3]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|tx_cnt[3]~DUPLICATE    ;                  ;                       ;
-+---------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+-------------------------------------+------------------+-----------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Netlist Optimizations                                                                                                                                                                                                            ;
++----------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+--------------------------------------+------------------+-----------------------+
+; Node                       ; Action     ; Operation                                         ; Reason                     ; Node Port ; Node Port Name ; Destination Node                     ; Destination Port ; Destination Port Name ;
++----------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+--------------------------------------+------------------+-----------------------+
+; CLOCK_50~inputCLKENA0      ; Created    ; Placement                                         ; Fitter Periphery Placement ;           ;                ;                                      ;                  ;                       ;
+; spart:spart0|db_high[0]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|db_high[0]~DUPLICATE    ;                  ;                       ;
+; spart:spart0|db_high[1]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|db_high[1]~DUPLICATE    ;                  ;                       ;
+; spart:spart0|db_high[2]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|db_high[2]~DUPLICATE    ;                  ;                       ;
+; spart:spart0|db_high[4]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|db_high[4]~DUPLICATE    ;                  ;                       ;
+; spart:spart0|db_high[5]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|db_high[5]~DUPLICATE    ;                  ;                       ;
+; spart:spart0|db_high[6]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|db_high[6]~DUPLICATE    ;                  ;                       ;
+; spart:spart0|db_high[7]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|db_high[7]~DUPLICATE    ;                  ;                       ;
+; spart:spart0|db_low[0]     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|db_low[0]~DUPLICATE     ;                  ;                       ;
+; spart:spart0|db_low[3]     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|db_low[3]~DUPLICATE     ;                  ;                       ;
+; spart:spart0|db_low[4]     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|db_low[4]~DUPLICATE     ;                  ;                       ;
+; spart:spart0|db_low[5]     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|db_low[5]~DUPLICATE     ;                  ;                       ;
+; spart:spart0|db_low[6]     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|db_low[6]~DUPLICATE     ;                  ;                       ;
+; spart:spart0|db_low[7]     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|db_low[7]~DUPLICATE     ;                  ;                       ;
+; spart:spart0|down_count[4] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|down_count[4]~DUPLICATE ;                  ;                       ;
+; spart:spart0|tx_cnt[0]     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|tx_cnt[0]~DUPLICATE     ;                  ;                       ;
+; spart:spart0|tx_cnt[1]     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|tx_cnt[1]~DUPLICATE     ;                  ;                       ;
+; spart:spart0|tx_cnt[2]     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|tx_cnt[2]~DUPLICATE     ;                  ;                       ;
+; spart:spart0|tx_cnt[3]     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; spart:spart0|tx_cnt[3]~DUPLICATE     ;                  ;                       ;
++----------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+--------------------------------------+------------------+-----------------------+
 
 
 +---------------------------------------------------------------------------------------------------+
@@ -186,8 +199,8 @@ refer to the applicable agreement for further details.
 ; Type                ; Total [A + B]       ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+---------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                     ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 1666 ) ; 0.00 % ( 0 / 1666 )        ; 0.00 % ( 0 / 1666 )      ;
-;     -- Achieved     ; 0.00 % ( 0 / 1666 ) ; 0.00 % ( 0 / 1666 )        ; 0.00 % ( 0 / 1666 )      ;
+;     -- Requested    ; 0.00 % ( 0 / 1807 ) ; 0.00 % ( 0 / 1807 )        ; 0.00 % ( 0 / 1807 )      ;
+;     -- Achieved     ; 0.00 % ( 0 / 1807 ) ; 0.00 % ( 0 / 1807 )        ; 0.00 % ( 0 / 1807 )      ;
 ;                     ;                     ;                            ;                          ;
 ; Routing (by net)    ;                     ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )    ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -210,7 +223,7 @@ refer to the applicable agreement for further details.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 1666 )   ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 1807 )   ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 0 )      ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -221,107 +234,107 @@ refer to the applicable agreement for further details.
 The pin-out file can be found in C:/Users/ECE_STUDENT/Documents/ece554p1/lab1_spart.pin.
 
 
-+---------------------------------------------------------------------------------------------+
-; Fitter Resource Usage Summary                                                               ;
-+-------------------------------------------------------------+-----------------------+-------+
-; Resource                                                    ; Usage                 ; %     ;
-+-------------------------------------------------------------+-----------------------+-------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 715 / 32,070          ; 2 %   ;
-; ALMs needed [=A-B+C]                                        ; 715                   ;       ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 710 / 32,070          ; 2 %   ;
-;         [a] ALMs used for LUT logic and registers           ; 19                    ;       ;
-;         [b] ALMs used for LUT logic                         ; 687                   ;       ;
-;         [c] ALMs used for registers                         ; 4                     ;       ;
-;         [d] ALMs used for memory (up to half of total ALMs) ; 0                     ;       ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 12 / 32,070           ; < 1 % ;
-;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 17 / 32,070           ; < 1 % ;
-;         [a] Due to location constrained logic               ; 0                     ;       ;
-;         [b] Due to LAB-wide signal conflicts                ; 0                     ;       ;
-;         [c] Due to LAB input limits                         ; 17                    ;       ;
-;         [d] Due to virtual I/Os                             ; 0                     ;       ;
-;                                                             ;                       ;       ;
-; Difficulty packing design                                   ; Low                   ;       ;
-;                                                             ;                       ;       ;
-; Total LABs:  partially or completely used                   ; 104 / 3,207           ; 3 %   ;
-;     -- Logic LABs                                           ; 104                   ;       ;
-;     -- Memory LABs (up to half of total LABs)               ; 0                     ;       ;
-;                                                             ;                       ;       ;
-; Combinational ALUT usage for logic                          ; 1,373                 ;       ;
-;     -- 7 input functions                                    ; 0                     ;       ;
-;     -- 6 input functions                                    ; 20                    ;       ;
-;     -- 5 input functions                                    ; 379                   ;       ;
-;     -- 4 input functions                                    ; 364                   ;       ;
-;     -- <=3 input functions                                  ; 610                   ;       ;
-; Combinational ALUT usage for route-throughs                 ; 0                     ;       ;
-;                                                             ;                       ;       ;
-; Dedicated logic registers                                   ; 50                    ;       ;
-;     -- By type:                                             ;                       ;       ;
-;         -- Primary logic registers                          ; 45 / 64,140           ; < 1 % ;
-;         -- Secondary logic registers                        ; 5 / 64,140            ; < 1 % ;
-;     -- By function:                                         ;                       ;       ;
-;         -- Design implementation registers                  ; 45                    ;       ;
-;         -- Routing optimization registers                   ; 5                     ;       ;
-;                                                             ;                       ;       ;
-; Virtual pins                                                ; 0                     ;       ;
-; I/O pins                                                    ; 106 / 457             ; 23 %  ;
-;     -- Clock pins                                           ; 7 / 8                 ; 88 %  ;
-;     -- Dedicated input pins                                 ; 0 / 21                ; 0 %   ;
-;                                                             ;                       ;       ;
-; Hard processor system peripheral utilization                ;                       ;       ;
-;     -- Boot from FPGA                                       ; 0 / 1 ( 0 % )         ;       ;
-;     -- Clock resets                                         ; 0 / 1 ( 0 % )         ;       ;
-;     -- Cross trigger                                        ; 0 / 1 ( 0 % )         ;       ;
-;     -- S2F AXI                                              ; 0 / 1 ( 0 % )         ;       ;
-;     -- F2S AXI                                              ; 0 / 1 ( 0 % )         ;       ;
-;     -- AXI Lightweight                                      ; 0 / 1 ( 0 % )         ;       ;
-;     -- SDRAM                                                ; 0 / 1 ( 0 % )         ;       ;
-;     -- Interrupts                                           ; 0 / 1 ( 0 % )         ;       ;
-;     -- JTAG                                                 ; 0 / 1 ( 0 % )         ;       ;
-;     -- Loan I/O                                             ; 0 / 1 ( 0 % )         ;       ;
-;     -- MPU event standby                                    ; 0 / 1 ( 0 % )         ;       ;
-;     -- MPU general purpose                                  ; 0 / 1 ( 0 % )         ;       ;
-;     -- STM event                                            ; 0 / 1 ( 0 % )         ;       ;
-;     -- TPIU trace                                           ; 0 / 1 ( 0 % )         ;       ;
-;     -- DMA                                                  ; 0 / 1 ( 0 % )         ;       ;
-;     -- CAN                                                  ; 0 / 2 ( 0 % )         ;       ;
-;     -- EMAC                                                 ; 0 / 2 ( 0 % )         ;       ;
-;     -- I2C                                                  ; 0 / 4 ( 0 % )         ;       ;
-;     -- NAND Flash                                           ; 0 / 1 ( 0 % )         ;       ;
-;     -- QSPI                                                 ; 0 / 1 ( 0 % )         ;       ;
-;     -- SDMMC                                                ; 0 / 1 ( 0 % )         ;       ;
-;     -- SPI Master                                           ; 0 / 2 ( 0 % )         ;       ;
-;     -- SPI Slave                                            ; 0 / 2 ( 0 % )         ;       ;
-;     -- UART                                                 ; 0 / 2 ( 0 % )         ;       ;
-;     -- USB                                                  ; 0 / 2 ( 0 % )         ;       ;
-;                                                             ;                       ;       ;
-; M10K blocks                                                 ; 0 / 397               ; 0 %   ;
-; Total MLAB memory bits                                      ; 0                     ;       ;
-; Total block memory bits                                     ; 0 / 4,065,280         ; 0 %   ;
-; Total block memory implementation bits                      ; 0 / 4,065,280         ; 0 %   ;
-;                                                             ;                       ;       ;
-; Total DSP Blocks                                            ; 0 / 87                ; 0 %   ;
-;                                                             ;                       ;       ;
-; Fractional PLLs                                             ; 0 / 6                 ; 0 %   ;
-; Global signals                                              ; 1                     ;       ;
-;     -- Global clocks                                        ; 1 / 16                ; 6 %   ;
-;     -- Quadrant clocks                                      ; 0 / 66                ; 0 %   ;
-;     -- Horizontal periphery clocks                          ; 0 / 18                ; 0 %   ;
-; SERDES Transmitters                                         ; 0 / 100               ; 0 %   ;
-; SERDES Receivers                                            ; 0 / 100               ; 0 %   ;
-; JTAGs                                                       ; 0 / 1                 ; 0 %   ;
-; ASMI blocks                                                 ; 0 / 1                 ; 0 %   ;
-; CRC blocks                                                  ; 0 / 1                 ; 0 %   ;
-; Remote update blocks                                        ; 0 / 1                 ; 0 %   ;
-; Oscillator blocks                                           ; 0 / 1                 ; 0 %   ;
-; Impedance control blocks                                    ; 0 / 4                 ; 0 %   ;
-; Hard Memory Controllers                                     ; 0 / 2                 ; 0 %   ;
-; Average interconnect usage (total/H/V)                      ; 0.6% / 0.6% / 0.5%    ;       ;
-; Peak interconnect usage (total/H/V)                         ; 13.1% / 13.2% / 13.0% ;       ;
-; Maximum fan-out                                             ; 66                    ;       ;
-; Highest non-global fan-out                                  ; 66                    ;       ;
-; Total fan-out                                               ; 5557                  ;       ;
-; Average fan-out                                             ; 3.32                  ;       ;
-+-------------------------------------------------------------+-----------------------+-------+
++------------------------------------------------------------------------------------------+
+; Fitter Resource Usage Summary                                                            ;
++-------------------------------------------------------------+--------------------+-------+
+; Resource                                                    ; Usage              ; %     ;
++-------------------------------------------------------------+--------------------+-------+
+; Logic utilization (ALMs needed / total ALMs on device)      ; 797 / 32,070       ; 2 %   ;
+; ALMs needed [=A-B+C]                                        ; 797                ;       ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 787 / 32,070       ; 2 %   ;
+;         [a] ALMs used for LUT logic and registers           ; 23                 ;       ;
+;         [b] ALMs used for LUT logic                         ; 757                ;       ;
+;         [c] ALMs used for registers                         ; 7                  ;       ;
+;         [d] ALMs used for memory (up to half of total ALMs) ; 0                  ;       ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 20 / 32,070        ; < 1 % ;
+;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 30 / 32,070        ; < 1 % ;
+;         [a] Due to location constrained logic               ; 0                  ;       ;
+;         [b] Due to LAB-wide signal conflicts                ; 0                  ;       ;
+;         [c] Due to LAB input limits                         ; 30                 ;       ;
+;         [d] Due to virtual I/Os                             ; 0                  ;       ;
+;                                                             ;                    ;       ;
+; Difficulty packing design                                   ; Low                ;       ;
+;                                                             ;                    ;       ;
+; Total LABs:  partially or completely used                   ; 103 / 3,207        ; 3 %   ;
+;     -- Logic LABs                                           ; 103                ;       ;
+;     -- Memory LABs (up to half of total LABs)               ; 0                  ;       ;
+;                                                             ;                    ;       ;
+; Combinational ALUT usage for logic                          ; 1,499              ;       ;
+;     -- 7 input functions                                    ; 1                  ;       ;
+;     -- 6 input functions                                    ; 37                 ;       ;
+;     -- 5 input functions                                    ; 491                ;       ;
+;     -- 4 input functions                                    ; 422                ;       ;
+;     -- <=3 input functions                                  ; 548                ;       ;
+; Combinational ALUT usage for route-throughs                 ; 3                  ;       ;
+;                                                             ;                    ;       ;
+; Dedicated logic registers                                   ; 78                 ;       ;
+;     -- By type:                                             ;                    ;       ;
+;         -- Primary logic registers                          ; 60 / 64,140        ; < 1 % ;
+;         -- Secondary logic registers                        ; 18 / 64,140        ; < 1 % ;
+;     -- By function:                                         ;                    ;       ;
+;         -- Design implementation registers                  ; 60                 ;       ;
+;         -- Routing optimization registers                   ; 18                 ;       ;
+;                                                             ;                    ;       ;
+; Virtual pins                                                ; 0                  ;       ;
+; I/O pins                                                    ; 106 / 457          ; 23 %  ;
+;     -- Clock pins                                           ; 7 / 8              ; 88 %  ;
+;     -- Dedicated input pins                                 ; 0 / 21             ; 0 %   ;
+;                                                             ;                    ;       ;
+; Hard processor system peripheral utilization                ;                    ;       ;
+;     -- Boot from FPGA                                       ; 0 / 1 ( 0 % )      ;       ;
+;     -- Clock resets                                         ; 0 / 1 ( 0 % )      ;       ;
+;     -- Cross trigger                                        ; 0 / 1 ( 0 % )      ;       ;
+;     -- S2F AXI                                              ; 0 / 1 ( 0 % )      ;       ;
+;     -- F2S AXI                                              ; 0 / 1 ( 0 % )      ;       ;
+;     -- AXI Lightweight                                      ; 0 / 1 ( 0 % )      ;       ;
+;     -- SDRAM                                                ; 0 / 1 ( 0 % )      ;       ;
+;     -- Interrupts                                           ; 0 / 1 ( 0 % )      ;       ;
+;     -- JTAG                                                 ; 0 / 1 ( 0 % )      ;       ;
+;     -- Loan I/O                                             ; 0 / 1 ( 0 % )      ;       ;
+;     -- MPU event standby                                    ; 0 / 1 ( 0 % )      ;       ;
+;     -- MPU general purpose                                  ; 0 / 1 ( 0 % )      ;       ;
+;     -- STM event                                            ; 0 / 1 ( 0 % )      ;       ;
+;     -- TPIU trace                                           ; 0 / 1 ( 0 % )      ;       ;
+;     -- DMA                                                  ; 0 / 1 ( 0 % )      ;       ;
+;     -- CAN                                                  ; 0 / 2 ( 0 % )      ;       ;
+;     -- EMAC                                                 ; 0 / 2 ( 0 % )      ;       ;
+;     -- I2C                                                  ; 0 / 4 ( 0 % )      ;       ;
+;     -- NAND Flash                                           ; 0 / 1 ( 0 % )      ;       ;
+;     -- QSPI                                                 ; 0 / 1 ( 0 % )      ;       ;
+;     -- SDMMC                                                ; 0 / 1 ( 0 % )      ;       ;
+;     -- SPI Master                                           ; 0 / 2 ( 0 % )      ;       ;
+;     -- SPI Slave                                            ; 0 / 2 ( 0 % )      ;       ;
+;     -- UART                                                 ; 0 / 2 ( 0 % )      ;       ;
+;     -- USB                                                  ; 0 / 2 ( 0 % )      ;       ;
+;                                                             ;                    ;       ;
+; M10K blocks                                                 ; 0 / 397            ; 0 %   ;
+; Total MLAB memory bits                                      ; 0                  ;       ;
+; Total block memory bits                                     ; 0 / 4,065,280      ; 0 %   ;
+; Total block memory implementation bits                      ; 0 / 4,065,280      ; 0 %   ;
+;                                                             ;                    ;       ;
+; Total DSP Blocks                                            ; 0 / 87             ; 0 %   ;
+;                                                             ;                    ;       ;
+; Fractional PLLs                                             ; 0 / 6              ; 0 %   ;
+; Global signals                                              ; 1                  ;       ;
+;     -- Global clocks                                        ; 1 / 16             ; 6 %   ;
+;     -- Quadrant clocks                                      ; 0 / 66             ; 0 %   ;
+;     -- Horizontal periphery clocks                          ; 0 / 18             ; 0 %   ;
+; SERDES Transmitters                                         ; 0 / 100            ; 0 %   ;
+; SERDES Receivers                                            ; 0 / 100            ; 0 %   ;
+; JTAGs                                                       ; 0 / 1              ; 0 %   ;
+; ASMI blocks                                                 ; 0 / 1              ; 0 %   ;
+; CRC blocks                                                  ; 0 / 1              ; 0 %   ;
+; Remote update blocks                                        ; 0 / 1              ; 0 %   ;
+; Oscillator blocks                                           ; 0 / 1              ; 0 %   ;
+; Impedance control blocks                                    ; 0 / 4              ; 0 %   ;
+; Hard Memory Controllers                                     ; 0 / 2              ; 0 %   ;
+; Average interconnect usage (total/H/V)                      ; 0.7% / 0.7% / 0.6% ;       ;
+; Peak interconnect usage (total/H/V)                         ; 8.3% / 8.3% / 8.8% ;       ;
+; Maximum fan-out                                             ; 84                 ;       ;
+; Highest non-global fan-out                                  ; 84                 ;       ;
+; Total fan-out                                               ; 6515               ;       ;
+; Average fan-out                                             ; 3.56               ;       ;
++-------------------------------------------------------------+--------------------+-------+
 
 
 +---------------------------------------------------------------------------------------------------------------------+
@@ -329,44 +342,44 @@ The pin-out file can be found in C:/Users/ECE_STUDENT/Documents/ece554p1/lab1_sp
 +-------------------------------------------------------------+----------------------+--------------------------------+
 ; Statistic                                                   ; Top                  ; hard_block:auto_generated_inst ;
 +-------------------------------------------------------------+----------------------+--------------------------------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 715 / 32070 ( 2 % )  ; 0 / 32070 ( 0 % )              ;
-; ALMs needed [=A-B+C]                                        ; 715                  ; 0                              ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 710 / 32070 ( 2 % )  ; 0 / 32070 ( 0 % )              ;
-;         [a] ALMs used for LUT logic and registers           ; 19                   ; 0                              ;
-;         [b] ALMs used for LUT logic                         ; 687                  ; 0                              ;
-;         [c] ALMs used for registers                         ; 4                    ; 0                              ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 797 / 32070 ( 2 % )  ; 0 / 32070 ( 0 % )              ;
+; ALMs needed [=A-B+C]                                        ; 797                  ; 0                              ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 787 / 32070 ( 2 % )  ; 0 / 32070 ( 0 % )              ;
+;         [a] ALMs used for LUT logic and registers           ; 23                   ; 0                              ;
+;         [b] ALMs used for LUT logic                         ; 757                  ; 0                              ;
+;         [c] ALMs used for registers                         ; 7                    ; 0                              ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                    ; 0                              ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 12 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
-;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 17 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 20 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
+;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 30 / 32070 ( < 1 % ) ; 0 / 32070 ( 0 % )              ;
 ;         [a] Due to location constrained logic               ; 0                    ; 0                              ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                    ; 0                              ;
-;         [c] Due to LAB input limits                         ; 17                   ; 0                              ;
+;         [c] Due to LAB input limits                         ; 30                   ; 0                              ;
 ;         [d] Due to virtual I/Os                             ; 0                    ; 0                              ;
 ;                                                             ;                      ;                                ;
 ; Difficulty packing design                                   ; Low                  ; Low                            ;
 ;                                                             ;                      ;                                ;
-; Total LABs:  partially or completely used                   ; 104 / 3207 ( 3 % )   ; 0 / 3207 ( 0 % )               ;
-;     -- Logic LABs                                           ; 104                  ; 0                              ;
+; Total LABs:  partially or completely used                   ; 103 / 3207 ( 3 % )   ; 0 / 3207 ( 0 % )               ;
+;     -- Logic LABs                                           ; 103                  ; 0                              ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                    ; 0                              ;
 ;                                                             ;                      ;                                ;
-; Combinational ALUT usage for logic                          ; 1373                 ; 0                              ;
-;     -- 7 input functions                                    ; 0                    ; 0                              ;
-;     -- 6 input functions                                    ; 20                   ; 0                              ;
-;     -- 5 input functions                                    ; 379                  ; 0                              ;
-;     -- 4 input functions                                    ; 364                  ; 0                              ;
-;     -- <=3 input functions                                  ; 610                  ; 0                              ;
-; Combinational ALUT usage for route-throughs                 ; 0                    ; 0                              ;
+; Combinational ALUT usage for logic                          ; 1499                 ; 0                              ;
+;     -- 7 input functions                                    ; 1                    ; 0                              ;
+;     -- 6 input functions                                    ; 37                   ; 0                              ;
+;     -- 5 input functions                                    ; 491                  ; 0                              ;
+;     -- 4 input functions                                    ; 422                  ; 0                              ;
+;     -- <=3 input functions                                  ; 548                  ; 0                              ;
+; Combinational ALUT usage for route-throughs                 ; 3                    ; 0                              ;
 ; Memory ALUT usage                                           ; 0                    ; 0                              ;
 ;     -- 64-address deep                                      ; 0                    ; 0                              ;
 ;     -- 32-address deep                                      ; 0                    ; 0                              ;
 ;                                                             ;                      ;                                ;
 ; Dedicated logic registers                                   ; 0                    ; 0                              ;
 ;     -- By type:                                             ;                      ;                                ;
-;         -- Primary logic registers                          ; 45 / 64140 ( < 1 % ) ; 0 / 64140 ( 0 % )              ;
-;         -- Secondary logic registers                        ; 5 / 64140 ( < 1 % )  ; 0 / 64140 ( 0 % )              ;
+;         -- Primary logic registers                          ; 60 / 64140 ( < 1 % ) ; 0 / 64140 ( 0 % )              ;
+;         -- Secondary logic registers                        ; 18 / 64140 ( < 1 % ) ; 0 / 64140 ( 0 % )              ;
 ;     -- By function:                                         ;                      ;                                ;
-;         -- Design implementation registers                  ; 45                   ; 0                              ;
-;         -- Routing optimization registers                   ; 5                    ; 0                              ;
+;         -- Design implementation registers                  ; 60                   ; 0                              ;
+;         -- Routing optimization registers                   ; 18                   ; 0                              ;
 ;                                                             ;                      ;                                ;
 ;                                                             ;                      ;                                ;
 ; Virtual pins                                                ; 0                    ; 0                              ;
@@ -383,8 +396,8 @@ The pin-out file can be found in C:/Users/ECE_STUDENT/Documents/ece554p1/lab1_sp
 ;     -- Registered Output Connections                        ; 0                    ; 0                              ;
 ;                                                             ;                      ;                                ;
 ; Internal Connections                                        ;                      ;                                ;
-;     -- Total Connections                                    ; 5575                 ; 0                              ;
-;     -- Registered Connections                               ; 481                  ; 0                              ;
+;     -- Total Connections                                    ; 6527                 ; 0                              ;
+;     -- Registered Connections                               ; 801                  ; 0                              ;
 ;                                                             ;                      ;                                ;
 ; External Connections                                        ;                      ;                                ;
 ;     -- Top                                                  ; 72                   ; 0                              ;
@@ -419,8 +432,8 @@ The pin-out file can be found in C:/Users/ECE_STUDENT/Documents/ece554p1/lab1_sp
 ; CLOCK2_50 ; AA16  ; 4A       ; 56           ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; --                        ; User                 ; no        ;
 ; CLOCK3_50 ; Y26   ; 5B       ; 89           ; 25           ; 3            ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; --                        ; User                 ; no        ;
 ; CLOCK4_50 ; K14   ; 8A       ; 32           ; 81           ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; --                        ; User                 ; no        ;
-; CLOCK_50  ; AF14  ; 3B       ; 32           ; 0            ; 0            ; 50                    ; 0                  ; yes    ; no             ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; --                        ; User                 ; no        ;
-; KEY[0]    ; AA14  ; 3B       ; 36           ; 0            ; 0            ; 51                    ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; --                        ; User                 ; no        ;
+; CLOCK_50  ; AF14  ; 3B       ; 32           ; 0            ; 0            ; 78                    ; 0                  ; yes    ; no             ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; --                        ; User                 ; no        ;
+; KEY[0]    ; AA14  ; 3B       ; 36           ; 0            ; 0            ; 79                    ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; --                        ; User                 ; no        ;
 ; KEY[1]    ; AA15  ; 3B       ; 36           ; 0            ; 17           ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; --                        ; User                 ; no        ;
 ; KEY[2]    ; W15   ; 3B       ; 40           ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; --                        ; User                 ; no        ;
 ; KEY[3]    ; Y16   ; 3B       ; 40           ; 0            ; 17           ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; --                        ; User                 ; no        ;
@@ -432,8 +445,8 @@ The pin-out file can be found in C:/Users/ECE_STUDENT/Documents/ece554p1/lab1_sp
 ; SW[5]     ; AD12  ; 3A       ; 16           ; 0            ; 17           ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; --                        ; User                 ; no        ;
 ; SW[6]     ; AE11  ; 3A       ; 4            ; 0            ; 34           ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; --                        ; User                 ; no        ;
 ; SW[7]     ; AC9   ; 3A       ; 4            ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; --                        ; User                 ; no        ;
-; SW[8]     ; AD10  ; 3A       ; 4            ; 0            ; 17           ; 21                    ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; --                        ; User                 ; no        ;
-; SW[9]     ; AE12  ; 3A       ; 2            ; 0            ; 57           ; 22                    ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; --                        ; User                 ; no        ;
+; SW[8]     ; AD10  ; 3A       ; 4            ; 0            ; 17           ; 15                    ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; --                        ; User                 ; no        ;
+; SW[9]     ; AE12  ; 3A       ; 2            ; 0            ; 57           ; 16                    ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; --                        ; User                 ; no        ;
 +-----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
 
 
@@ -1569,17 +1582,17 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +-------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; ALMs needed [=A-B+C] ; [A] ALMs used in final placement ; [B] Estimate of ALMs recoverable by dense packing ; [C] Estimate of ALMs unavailable ; ALMs used for memory ; Combinational ALUTs ; Dedicated Logic Registers ; I/O Registers ; Block Memory Bits ; M10Ks ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                      ; Entity Name         ; Library Name ;
 +-------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |lab1_spart                               ; 714.5 (7.3)          ; 709.0 (7.3)                      ; 11.5 (0.0)                                        ; 17.0 (0.0)                       ; 0.0 (0.0)            ; 1373 (13)           ; 50 (0)                    ; 0 (0)         ; 0                 ; 0     ; 0          ; 106  ; 0            ; |lab1_spart                                                                                                              ; lab1_spart          ; work         ;
-;    |driver:driver0|                       ; 8.0 (8.0)            ; 8.3 (8.3)                        ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 16 (16)             ; 7 (7)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|driver:driver0                                                                                               ; driver              ; work         ;
-;    |spart:spart0|                         ; 698.9 (51.8)         ; 693.3 (55.3)                     ; 11.4 (5.9)                                        ; 17.0 (2.5)                       ; 0.0 (0.0)            ; 1344 (89)           ; 43 (43)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0                                                                                                 ; spart               ; work         ;
-;       |lpm_divide:Div0|                   ; 358.6 (0.0)          ; 347.7 (0.0)                      ; 2.2 (0.0)                                         ; 13.0 (0.0)                       ; 0.0 (0.0)            ; 685 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_3dm:auto_generated|  ; 358.6 (0.0)          ; 347.7 (0.0)                      ; 2.2 (0.0)                                         ; 13.0 (0.0)                       ; 0.0 (0.0)            ; 685 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div0|lpm_divide_3dm:auto_generated                                                   ; lpm_divide_3dm      ; work         ;
-;             |sign_div_unsign_9nh:divider| ; 358.6 (0.0)          ; 347.7 (0.0)                      ; 2.2 (0.0)                                         ; 13.0 (0.0)                       ; 0.0 (0.0)            ; 685 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
-;                |alt_u_div_o2f:divider|    ; 358.6 (358.6)        ; 347.7 (347.7)                    ; 2.2 (2.2)                                         ; 13.0 (13.0)                      ; 0.0 (0.0)            ; 685 (685)           ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f       ; work         ;
-;       |lpm_divide:Div1|                   ; 288.5 (0.0)          ; 290.3 (0.0)                      ; 3.3 (0.0)                                         ; 1.5 (0.0)                        ; 0.0 (0.0)            ; 570 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_3dm:auto_generated|  ; 288.5 (0.0)          ; 290.3 (0.0)                      ; 3.3 (0.0)                                         ; 1.5 (0.0)                        ; 0.0 (0.0)            ; 570 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div1|lpm_divide_3dm:auto_generated                                                   ; lpm_divide_3dm      ; work         ;
-;             |sign_div_unsign_9nh:divider| ; 288.5 (0.0)          ; 290.3 (0.0)                      ; 3.3 (0.0)                                         ; 1.5 (0.0)                        ; 0.0 (0.0)            ; 570 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div1|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
-;                |alt_u_div_o2f:divider|    ; 288.5 (288.5)        ; 290.3 (290.3)                    ; 3.3 (3.3)                                         ; 1.5 (1.5)                        ; 0.0 (0.0)            ; 570 (570)           ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div1|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f       ; work         ;
+; |lab1_spart                               ; 797.0 (4.3)          ; 787.0 (5.7)                      ; 19.5 (1.4)                                        ; 29.5 (0.1)                       ; 0.0 (0.0)            ; 1499 (13)           ; 78 (0)                    ; 0 (0)         ; 0                 ; 0     ; 0          ; 106  ; 0            ; |lab1_spart                                                                                                              ; lab1_spart          ; work         ;
+;    |driver:driver0|                       ; 14.2 (14.2)          ; 15.0 (15.0)                      ; 0.9 (0.9)                                         ; 0.1 (0.1)                        ; 0.0 (0.0)            ; 16 (16)             ; 15 (15)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|driver:driver0                                                                                               ; driver              ; work         ;
+;    |spart:spart0|                         ; 778.5 (56.7)         ; 766.3 (58.1)                     ; 17.1 (1.9)                                        ; 29.3 (0.5)                       ; 0.0 (0.0)            ; 1470 (91)           ; 63 (63)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0                                                                                                 ; spart               ; work         ;
+;       |lpm_divide:Div0|                   ; 359.3 (0.0)          ; 345.7 (0.0)                      ; 5.8 (0.0)                                         ; 19.5 (0.0)                       ; 0.0 (0.0)            ; 675 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_3dm:auto_generated|  ; 359.3 (0.0)          ; 345.7 (0.0)                      ; 5.8 (0.0)                                         ; 19.5 (0.0)                       ; 0.0 (0.0)            ; 675 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div0|lpm_divide_3dm:auto_generated                                                   ; lpm_divide_3dm      ; work         ;
+;             |sign_div_unsign_9nh:divider| ; 359.3 (0.0)          ; 345.7 (0.0)                      ; 5.8 (0.0)                                         ; 19.5 (0.0)                       ; 0.0 (0.0)            ; 675 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
+;                |alt_u_div_o2f:divider|    ; 359.3 (359.3)        ; 345.7 (345.7)                    ; 5.8 (5.8)                                         ; 19.5 (19.5)                      ; 0.0 (0.0)            ; 675 (675)           ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f       ; work         ;
+;       |lpm_divide:Div1|                   ; 362.4 (0.0)          ; 362.5 (0.0)                      ; 9.4 (0.0)                                         ; 9.3 (0.0)                        ; 0.0 (0.0)            ; 704 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_3dm:auto_generated|  ; 362.4 (0.0)          ; 362.5 (0.0)                      ; 9.4 (0.0)                                         ; 9.3 (0.0)                        ; 0.0 (0.0)            ; 704 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div1|lpm_divide_3dm:auto_generated                                                   ; lpm_divide_3dm      ; work         ;
+;             |sign_div_unsign_9nh:divider| ; 362.4 (0.0)          ; 362.5 (0.0)                      ; 9.4 (0.0)                                         ; 9.3 (0.0)                        ; 0.0 (0.0)            ; 704 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div1|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh ; work         ;
+;                |alt_u_div_o2f:divider|    ; 362.4 (362.4)        ; 362.5 (362.5)                    ; 9.4 (9.4)                                         ; 9.3 (9.3)                        ; 0.0 (0.0)            ; 704 (704)           ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |lab1_spart|spart:spart0|lpm_divide:Div1|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f       ; work         ;
 +-------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1693,179 +1706,196 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; GPIO[5]   ; Bidir    ; -- ; (0)  ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; SW[8]     ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; SW[9]     ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; KEY[0]    ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; KEY[0]    ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; CLOCK_50  ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 +-----------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Pad To Core Delay Chain Fanout                                                                                                                                    ;
-+-------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------+
-; Source Pin / Fanout                                                                                                                 ; Pad To Core Index ; Setting ;
-+-------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------+
-; CLOCK2_50                                                                                                                           ;                   ;         ;
-; CLOCK3_50                                                                                                                           ;                   ;         ;
-; CLOCK4_50                                                                                                                           ;                   ;         ;
-; KEY[1]                                                                                                                              ;                   ;         ;
-; KEY[2]                                                                                                                              ;                   ;         ;
-; KEY[3]                                                                                                                              ;                   ;         ;
-; SW[0]                                                                                                                               ;                   ;         ;
-; SW[1]                                                                                                                               ;                   ;         ;
-; SW[2]                                                                                                                               ;                   ;         ;
-; SW[3]                                                                                                                               ;                   ;         ;
-; SW[4]                                                                                                                               ;                   ;         ;
-; SW[5]                                                                                                                               ;                   ;         ;
-; SW[6]                                                                                                                               ;                   ;         ;
-; SW[7]                                                                                                                               ;                   ;         ;
-; GPIO[0]                                                                                                                             ;                   ;         ;
-; GPIO[1]                                                                                                                             ;                   ;         ;
-; GPIO[2]                                                                                                                             ;                   ;         ;
-; GPIO[4]                                                                                                                             ;                   ;         ;
-; GPIO[6]                                                                                                                             ;                   ;         ;
-; GPIO[7]                                                                                                                             ;                   ;         ;
-; GPIO[8]                                                                                                                             ;                   ;         ;
-; GPIO[9]                                                                                                                             ;                   ;         ;
-; GPIO[10]                                                                                                                            ;                   ;         ;
-; GPIO[11]                                                                                                                            ;                   ;         ;
-; GPIO[12]                                                                                                                            ;                   ;         ;
-; GPIO[13]                                                                                                                            ;                   ;         ;
-; GPIO[14]                                                                                                                            ;                   ;         ;
-; GPIO[15]                                                                                                                            ;                   ;         ;
-; GPIO[16]                                                                                                                            ;                   ;         ;
-; GPIO[17]                                                                                                                            ;                   ;         ;
-; GPIO[18]                                                                                                                            ;                   ;         ;
-; GPIO[19]                                                                                                                            ;                   ;         ;
-; GPIO[20]                                                                                                                            ;                   ;         ;
-; GPIO[21]                                                                                                                            ;                   ;         ;
-; GPIO[22]                                                                                                                            ;                   ;         ;
-; GPIO[23]                                                                                                                            ;                   ;         ;
-; GPIO[24]                                                                                                                            ;                   ;         ;
-; GPIO[25]                                                                                                                            ;                   ;         ;
-; GPIO[26]                                                                                                                            ;                   ;         ;
-; GPIO[27]                                                                                                                            ;                   ;         ;
-; GPIO[28]                                                                                                                            ;                   ;         ;
-; GPIO[29]                                                                                                                            ;                   ;         ;
-; GPIO[30]                                                                                                                            ;                   ;         ;
-; GPIO[31]                                                                                                                            ;                   ;         ;
-; GPIO[32]                                                                                                                            ;                   ;         ;
-; GPIO[33]                                                                                                                            ;                   ;         ;
-; GPIO[34]                                                                                                                            ;                   ;         ;
-; GPIO[35]                                                                                                                            ;                   ;         ;
-; GPIO[3]                                                                                                                             ;                   ;         ;
-; GPIO[5]                                                                                                                             ;                   ;         ;
-;      - LEDR[9]~output                                                                                                               ; 0                 ; 0       ;
-; SW[8]                                                                                                                               ;                   ;         ;
-;      - Decoder0~0                                                                                                                   ; 1                 ; 0       ;
-;      - Decoder0~1                                                                                                                   ; 1                 ; 0       ;
-;      - Decoder0~2                                                                                                                   ; 1                 ; 0       ;
-;      - Decoder0~3                                                                                                                   ; 1                 ; 0       ;
-;      - driver:driver0|Selector0~0                                                                                                   ; 1                 ; 0       ;
-;      - driver:driver0|Selector1~0                                                                                                   ; 1                 ; 0       ;
-;      - databus[0]~0                                                                                                                 ; 1                 ; 0       ;
-;      - databus[1]~1                                                                                                                 ; 1                 ; 0       ;
-;      - databus[2]~2                                                                                                                 ; 1                 ; 0       ;
-;      - databus[3]~3                                                                                                                 ; 1                 ; 0       ;
-;      - databus[4]~4                                                                                                                 ; 1                 ; 0       ;
-;      - databus[5]~5                                                                                                                 ; 1                 ; 0       ;
-;      - databus[7]~6                                                                                                                 ; 1                 ; 0       ;
-;      - databus[6]~7                                                                                                                 ; 1                 ; 0       ;
-;      - driver:driver0|Selector2~0                                                                                                   ; 1                 ; 0       ;
-;      - spart:spart0|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider|StageOut[88]~83 ; 1                 ; 0       ;
-;      - driver:driver0|Selector8~0                                                                                                   ; 1                 ; 0       ;
-;      - driver:driver0|Selector1~2                                                                                                   ; 1                 ; 0       ;
-;      - driver:driver0|Selector2~1                                                                                                   ; 1                 ; 0       ;
-;      - driver:driver0|br~0                                                                                                          ; 1                 ; 0       ;
-;      - driver:driver0|br_cfg_old[0]~0                                                                                               ; 1                 ; 0       ;
-; SW[9]                                                                                                                               ;                   ;         ;
-;      - Decoder0~0                                                                                                                   ; 1                 ; 0       ;
-;      - Decoder0~1                                                                                                                   ; 1                 ; 0       ;
-;      - Decoder0~2                                                                                                                   ; 1                 ; 0       ;
-;      - Decoder0~3                                                                                                                   ; 1                 ; 0       ;
-;      - driver:driver0|br_cfg_old[1]                                                                                                 ; 1                 ; 0       ;
-;      - driver:driver0|Selector0~0                                                                                                   ; 1                 ; 0       ;
-;      - driver:driver0|Selector1~0                                                                                                   ; 1                 ; 0       ;
-;      - databus[0]~0                                                                                                                 ; 1                 ; 0       ;
-;      - databus[1]~1                                                                                                                 ; 1                 ; 0       ;
-;      - databus[3]~3                                                                                                                 ; 1                 ; 0       ;
-;      - databus[4]~4                                                                                                                 ; 1                 ; 0       ;
-;      - databus[5]~5                                                                                                                 ; 1                 ; 0       ;
-;      - databus[7]~6                                                                                                                 ; 1                 ; 0       ;
-;      - databus[6]~7                                                                                                                 ; 1                 ; 0       ;
-;      - driver:driver0|Selector2~0                                                                                                   ; 1                 ; 0       ;
-;      - spart:spart0|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider|StageOut[88]~83 ; 1                 ; 0       ;
-;      - driver:driver0|Selector8~0                                                                                                   ; 1                 ; 0       ;
-;      - driver:driver0|Selector1~2                                                                                                   ; 1                 ; 0       ;
-;      - driver:driver0|Selector2~1                                                                                                   ; 1                 ; 0       ;
-;      - driver:driver0|br~0                                                                                                          ; 1                 ; 0       ;
-;      - HEX4[2]~output                                                                                                               ; 1                 ; 0       ;
-;      - HEX4[1]~output                                                                                                               ; 1                 ; 0       ;
-; KEY[0]                                                                                                                              ;                   ;         ;
-;      - driver:driver0|state.LD_BR_HI                                                                                                ; 0                 ; 0       ;
-;      - driver:driver0|state.INIT                                                                                                    ; 0                 ; 0       ;
-;      - driver:driver0|state.NORMAL                                                                                                  ; 0                 ; 0       ;
-;      - spart:spart0|txbuf[0]                                                                                                        ; 0                 ; 0       ;
-;      - driver:driver0|br_cfg_old[0]                                                                                                 ; 0                 ; 0       ;
-;      - driver:driver0|br_cfg_old[1]                                                                                                 ; 0                 ; 0       ;
-;      - driver:driver0|state.LD_BR_LO                                                                                                ; 0                 ; 0       ;
-;      - spart:spart0|txbuf[1]                                                                                                        ; 0                 ; 0       ;
-;      - spart:spart0|tx_cnt[3]                                                                                                       ; 0                 ; 0       ;
-;      - spart:spart0|tx_cnt[2]                                                                                                       ; 0                 ; 0       ;
-;      - spart:spart0|tx_cnt[1]                                                                                                       ; 0                 ; 0       ;
-;      - spart:spart0|tx_cnt[0]                                                                                                       ; 0                 ; 0       ;
-;      - spart:spart0|down_count[4]                                                                                                   ; 0                 ; 0       ;
-;      - spart:spart0|down_count[3]                                                                                                   ; 0                 ; 0       ;
-;      - spart:spart0|down_count[2]                                                                                                   ; 0                 ; 0       ;
-;      - spart:spart0|down_count[1]                                                                                                   ; 0                 ; 0       ;
-;      - spart:spart0|down_count[0]                                                                                                   ; 0                 ; 0       ;
-;      - spart:spart0|down_count[15]                                                                                                  ; 0                 ; 0       ;
-;      - spart:spart0|down_count[14]                                                                                                  ; 0                 ; 0       ;
-;      - spart:spart0|down_count[13]                                                                                                  ; 0                 ; 0       ;
-;      - spart:spart0|down_count[12]                                                                                                  ; 0                 ; 0       ;
-;      - spart:spart0|down_count[11]                                                                                                  ; 0                 ; 0       ;
-;      - spart:spart0|down_count[10]                                                                                                  ; 0                 ; 0       ;
-;      - spart:spart0|down_count[9]                                                                                                   ; 0                 ; 0       ;
-;      - spart:spart0|down_count[8]                                                                                                   ; 0                 ; 0       ;
-;      - spart:spart0|down_count[7]                                                                                                   ; 0                 ; 0       ;
-;      - spart:spart0|down_count[6]                                                                                                   ; 0                 ; 0       ;
-;      - spart:spart0|down_count[5]                                                                                                   ; 0                 ; 0       ;
-;      - spart:spart0|txbuf[2]                                                                                                        ; 0                 ; 0       ;
-;      - spart:spart0|txbuf[3]                                                                                                        ; 0                 ; 0       ;
-;      - spart:spart0|db_high[0]                                                                                                      ; 0                 ; 0       ;
-;      - spart:spart0|db_high[1]                                                                                                      ; 0                 ; 0       ;
-;      - spart:spart0|db_high[2]                                                                                                      ; 0                 ; 0       ;
-;      - spart:spart0|db_high[3]                                                                                                      ; 0                 ; 0       ;
-;      - spart:spart0|db_high[4]                                                                                                      ; 0                 ; 0       ;
-;      - spart:spart0|db_high[5]                                                                                                      ; 0                 ; 0       ;
-;      - spart:spart0|db_high[7]                                                                                                      ; 0                 ; 0       ;
-;      - spart:spart0|db_high[6]                                                                                                      ; 0                 ; 0       ;
-;      - spart:spart0|db_low[7]                                                                                                       ; 0                 ; 0       ;
-;      - spart:spart0|txbuf[4]                                                                                                        ; 0                 ; 0       ;
-;      - spart:spart0|txbuf[5]                                                                                                        ; 0                 ; 0       ;
-;      - spart:spart0|db_low[6]                                                                                                       ; 0                 ; 0       ;
-;      - spart:spart0|txbuf[6]                                                                                                        ; 0                 ; 0       ;
-;      - spart:spart0|txbuf[7]                                                                                                        ; 0                 ; 0       ;
-;      - spart:spart0|txbuf[8]                                                                                                        ; 0                 ; 0       ;
-;      - LEDR[0]~output                                                                                                               ; 0                 ; 0       ;
-;      - driver:driver0|state.INIT~DUPLICATE                                                                                          ; 0                 ; 0       ;
-;      - spart:spart0|tx_cnt[3]~DUPLICATE                                                                                             ; 0                 ; 0       ;
-;      - spart:spart0|tx_cnt[2]~DUPLICATE                                                                                             ; 0                 ; 0       ;
-;      - spart:spart0|tx_cnt[1]~DUPLICATE                                                                                             ; 0                 ; 0       ;
-;      - spart:spart0|tx_cnt[0]~DUPLICATE                                                                                             ; 0                 ; 0       ;
-; CLOCK_50                                                                                                                            ;                   ;         ;
-+-------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------+
++---------------------------------------------------------------------------+
+; Pad To Core Delay Chain Fanout                                            ;
++---------------------------------------------+-------------------+---------+
+; Source Pin / Fanout                         ; Pad To Core Index ; Setting ;
++---------------------------------------------+-------------------+---------+
+; CLOCK2_50                                   ;                   ;         ;
+; CLOCK3_50                                   ;                   ;         ;
+; CLOCK4_50                                   ;                   ;         ;
+; KEY[1]                                      ;                   ;         ;
+; KEY[2]                                      ;                   ;         ;
+; KEY[3]                                      ;                   ;         ;
+; SW[0]                                       ;                   ;         ;
+; SW[1]                                       ;                   ;         ;
+; SW[2]                                       ;                   ;         ;
+; SW[3]                                       ;                   ;         ;
+; SW[4]                                       ;                   ;         ;
+; SW[5]                                       ;                   ;         ;
+; SW[6]                                       ;                   ;         ;
+; SW[7]                                       ;                   ;         ;
+; GPIO[0]                                     ;                   ;         ;
+; GPIO[1]                                     ;                   ;         ;
+; GPIO[2]                                     ;                   ;         ;
+; GPIO[4]                                     ;                   ;         ;
+; GPIO[6]                                     ;                   ;         ;
+; GPIO[7]                                     ;                   ;         ;
+; GPIO[8]                                     ;                   ;         ;
+; GPIO[9]                                     ;                   ;         ;
+; GPIO[10]                                    ;                   ;         ;
+; GPIO[11]                                    ;                   ;         ;
+; GPIO[12]                                    ;                   ;         ;
+; GPIO[13]                                    ;                   ;         ;
+; GPIO[14]                                    ;                   ;         ;
+; GPIO[15]                                    ;                   ;         ;
+; GPIO[16]                                    ;                   ;         ;
+; GPIO[17]                                    ;                   ;         ;
+; GPIO[18]                                    ;                   ;         ;
+; GPIO[19]                                    ;                   ;         ;
+; GPIO[20]                                    ;                   ;         ;
+; GPIO[21]                                    ;                   ;         ;
+; GPIO[22]                                    ;                   ;         ;
+; GPIO[23]                                    ;                   ;         ;
+; GPIO[24]                                    ;                   ;         ;
+; GPIO[25]                                    ;                   ;         ;
+; GPIO[26]                                    ;                   ;         ;
+; GPIO[27]                                    ;                   ;         ;
+; GPIO[28]                                    ;                   ;         ;
+; GPIO[29]                                    ;                   ;         ;
+; GPIO[30]                                    ;                   ;         ;
+; GPIO[31]                                    ;                   ;         ;
+; GPIO[32]                                    ;                   ;         ;
+; GPIO[33]                                    ;                   ;         ;
+; GPIO[34]                                    ;                   ;         ;
+; GPIO[35]                                    ;                   ;         ;
+; GPIO[3]                                     ;                   ;         ;
+; GPIO[5]                                     ;                   ;         ;
+;      - LEDR[9]~output                       ; 0                 ; 0       ;
+; SW[8]                                       ;                   ;         ;
+;      - Decoder0~0                           ; 1                 ; 0       ;
+;      - Decoder0~1                           ; 1                 ; 0       ;
+;      - Decoder0~2                           ; 1                 ; 0       ;
+;      - Decoder0~3                           ; 1                 ; 0       ;
+;      - driver:driver0|nxt_state.LD_BR_HI~0  ; 1                 ; 0       ;
+;      - driver:driver0|Selector0~1           ; 1                 ; 0       ;
+;      - driver:driver0|Selector1~0           ; 1                 ; 0       ;
+;      - driver:driver0|Selector8~0           ; 1                 ; 0       ;
+;      - driver:driver0|Selector7~0           ; 1                 ; 0       ;
+;      - driver:driver0|Selector6~0           ; 1                 ; 0       ;
+;      - driver:driver0|Selector5~0           ; 1                 ; 0       ;
+;      - driver:driver0|Selector4~0           ; 1                 ; 0       ;
+;      - driver:driver0|Selector3~0           ; 1                 ; 0       ;
+;      - driver:driver0|Selector2~0           ; 1                 ; 0       ;
+;      - driver:driver0|br_cfg_old[0]~0       ; 1                 ; 0       ;
+; SW[9]                                       ;                   ;         ;
+;      - Decoder0~0                           ; 1                 ; 0       ;
+;      - Decoder0~1                           ; 1                 ; 0       ;
+;      - Decoder0~2                           ; 1                 ; 0       ;
+;      - Decoder0~3                           ; 1                 ; 0       ;
+;      - driver:driver0|br_cfg_old[1]         ; 1                 ; 0       ;
+;      - driver:driver0|nxt_state.LD_BR_HI~0  ; 1                 ; 0       ;
+;      - driver:driver0|Selector0~1           ; 1                 ; 0       ;
+;      - driver:driver0|Selector1~0           ; 1                 ; 0       ;
+;      - driver:driver0|Selector8~0           ; 1                 ; 0       ;
+;      - driver:driver0|Selector7~0           ; 1                 ; 0       ;
+;      - driver:driver0|Selector5~0           ; 1                 ; 0       ;
+;      - driver:driver0|Selector4~0           ; 1                 ; 0       ;
+;      - driver:driver0|Selector3~0           ; 1                 ; 0       ;
+;      - driver:driver0|Selector2~0           ; 1                 ; 0       ;
+;      - HEX4[2]~output                       ; 1                 ; 0       ;
+;      - HEX4[1]~output                       ; 1                 ; 0       ;
+; KEY[0]                                      ;                   ;         ;
+;      - spart:spart0|down_count[15]          ; 1                 ; 0       ;
+;      - spart:spart0|down_count[14]          ; 1                 ; 0       ;
+;      - spart:spart0|down_count[13]          ; 1                 ; 0       ;
+;      - spart:spart0|down_count[12]          ; 1                 ; 0       ;
+;      - spart:spart0|down_count[11]          ; 1                 ; 0       ;
+;      - spart:spart0|down_count[10]          ; 1                 ; 0       ;
+;      - spart:spart0|down_count[9]           ; 1                 ; 0       ;
+;      - spart:spart0|down_count[8]           ; 1                 ; 0       ;
+;      - spart:spart0|down_count[7]           ; 1                 ; 0       ;
+;      - spart:spart0|down_count[6]           ; 1                 ; 0       ;
+;      - spart:spart0|down_count[5]           ; 1                 ; 0       ;
+;      - spart:spart0|down_count[4]           ; 1                 ; 0       ;
+;      - spart:spart0|down_count[3]           ; 1                 ; 0       ;
+;      - spart:spart0|down_count[2]           ; 1                 ; 0       ;
+;      - spart:spart0|down_count[1]           ; 1                 ; 0       ;
+;      - spart:spart0|down_count[0]           ; 1                 ; 0       ;
+;      - driver:driver0|state.LD_BR_LO        ; 1                 ; 0       ;
+;      - driver:driver0|state.SND_BR_LO       ; 1                 ; 0       ;
+;      - spart:spart0|txbuf[0]                ; 1                 ; 0       ;
+;      - driver:driver0|state.LD_BR_HI        ; 1                 ; 0       ;
+;      - spart:spart0|txbuf[1]                ; 1                 ; 0       ;
+;      - spart:spart0|tx_cnt[3]               ; 1                 ; 0       ;
+;      - spart:spart0|tx_cnt[2]               ; 1                 ; 0       ;
+;      - spart:spart0|tx_cnt[1]               ; 1                 ; 0       ;
+;      - spart:spart0|tx_cnt[0]               ; 1                 ; 0       ;
+;      - driver:driver0|state.NORMAL          ; 1                 ; 0       ;
+;      - driver:driver0|br_cfg_old[0]         ; 1                 ; 0       ;
+;      - driver:driver0|br_cfg_old[1]         ; 1                 ; 0       ;
+;      - spart:spart0|txbuf[2]                ; 1                 ; 0       ;
+;      - driver:driver0|state.INIT            ; 1                 ; 0       ;
+;      - spart:spart0|txbuf[3]                ; 1                 ; 0       ;
+;      - spart:spart0|db_low[7]               ; 1                 ; 0       ;
+;      - spart:spart0|db_high[0]              ; 1                 ; 0       ;
+;      - spart:spart0|db_high[1]              ; 1                 ; 0       ;
+;      - spart:spart0|db_high[2]              ; 1                 ; 0       ;
+;      - spart:spart0|db_high[3]              ; 1                 ; 0       ;
+;      - spart:spart0|db_high[4]              ; 1                 ; 0       ;
+;      - spart:spart0|db_high[5]              ; 1                 ; 0       ;
+;      - spart:spart0|db_high[7]              ; 1                 ; 0       ;
+;      - spart:spart0|db_high[6]              ; 1                 ; 0       ;
+;      - driver:driver0|store[7]              ; 1                 ; 0       ;
+;      - spart:spart0|txbuf[4]                ; 1                 ; 0       ;
+;      - driver:driver0|store[0]              ; 1                 ; 0       ;
+;      - driver:driver0|store[1]              ; 1                 ; 0       ;
+;      - driver:driver0|store[2]              ; 1                 ; 0       ;
+;      - driver:driver0|store[3]              ; 1                 ; 0       ;
+;      - driver:driver0|store[4]              ; 1                 ; 0       ;
+;      - driver:driver0|store[5]              ; 1                 ; 0       ;
+;      - driver:driver0|store[6]              ; 1                 ; 0       ;
+;      - spart:spart0|txbuf[5]                ; 1                 ; 0       ;
+;      - spart:spart0|db_low[6]               ; 1                 ; 0       ;
+;      - spart:spart0|db_low[5]               ; 1                 ; 0       ;
+;      - spart:spart0|db_low[4]               ; 1                 ; 0       ;
+;      - spart:spart0|db_low[3]               ; 1                 ; 0       ;
+;      - spart:spart0|db_low[2]               ; 1                 ; 0       ;
+;      - spart:spart0|db_low[0]               ; 1                 ; 0       ;
+;      - spart:spart0|db_low[1]               ; 1                 ; 0       ;
+;      - spart:spart0|txbuf[6]                ; 1                 ; 0       ;
+;      - spart:spart0|txbuf[7]                ; 1                 ; 0       ;
+;      - spart:spart0|txbuf[8]                ; 1                 ; 0       ;
+;      - LEDR[0]~output                       ; 1                 ; 0       ;
+;      - spart:spart0|down_count[4]~DUPLICATE ; 1                 ; 0       ;
+;      - spart:spart0|tx_cnt[3]~DUPLICATE     ; 1                 ; 0       ;
+;      - spart:spart0|tx_cnt[2]~DUPLICATE     ; 1                 ; 0       ;
+;      - spart:spart0|tx_cnt[1]~DUPLICATE     ; 1                 ; 0       ;
+;      - spart:spart0|tx_cnt[0]~DUPLICATE     ; 1                 ; 0       ;
+;      - spart:spart0|db_low[7]~DUPLICATE     ; 1                 ; 0       ;
+;      - spart:spart0|db_high[0]~DUPLICATE    ; 1                 ; 0       ;
+;      - spart:spart0|db_high[1]~DUPLICATE    ; 1                 ; 0       ;
+;      - spart:spart0|db_high[2]~DUPLICATE    ; 1                 ; 0       ;
+;      - spart:spart0|db_high[4]~DUPLICATE    ; 1                 ; 0       ;
+;      - spart:spart0|db_high[5]~DUPLICATE    ; 1                 ; 0       ;
+;      - spart:spart0|db_high[7]~DUPLICATE    ; 1                 ; 0       ;
+;      - spart:spart0|db_high[6]~DUPLICATE    ; 1                 ; 0       ;
+;      - spart:spart0|db_low[6]~DUPLICATE     ; 1                 ; 0       ;
+;      - spart:spart0|db_low[5]~DUPLICATE     ; 1                 ; 0       ;
+;      - spart:spart0|db_low[4]~DUPLICATE     ; 1                 ; 0       ;
+;      - spart:spart0|db_low[3]~DUPLICATE     ; 1                 ; 0       ;
+;      - spart:spart0|db_low[0]~DUPLICATE     ; 1                 ; 0       ;
+; CLOCK_50                                    ;                   ;         ;
++---------------------------------------------+-------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                      ;
-+-------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Name                    ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+-------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; CLOCK_50                ; PIN_AF14           ; 50      ; Clock        ; yes    ; Global Clock         ; GCLK6            ; --                        ;
-; KEY[0]                  ; PIN_AA14           ; 51      ; Async. clear ; no     ; --                   ; --               ; --                        ;
-; spart:spart0|Decoder0~0 ; LABCELL_X63_Y8_N57 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; spart:spart0|Equal1~0   ; LABCELL_X60_Y8_N27 ; 20      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; spart:spart0|txbuf[0]~1 ; LABCELL_X60_Y8_N54 ; 12      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-+-------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                             ;
++--------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Name                           ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++--------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; CLOCK_50                       ; PIN_AF14           ; 78      ; Clock        ; yes    ; Global Clock         ; GCLK6            ; --                        ;
+; KEY[0]                         ; PIN_AA14           ; 79      ; Async. clear ; no     ; --                   ; --               ; --                        ;
+; driver:driver0|state.LD_BR_LO  ; FF_X43_Y8_N11      ; 27      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; driver:driver0|state.SND_BR_LO ; FF_X43_Y8_N50      ; 26      ; Sync. load   ; no     ; --                   ; --               ; --                        ;
+; spart:spart0|Decoder0~0        ; LABCELL_X43_Y8_N48 ; 14      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; spart:spart0|txbuf[2]~1        ; LABCELL_X45_Y5_N15 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
++--------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------+
@@ -1873,7 +1903,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------+----------+---------+----------------------+------------------+---------------------------+
 ; Name     ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +----------+----------+---------+----------------------+------------------+---------------------------+
-; CLOCK_50 ; PIN_AF14 ; 50      ; Global Clock         ; GCLK6            ; --                        ;
+; CLOCK_50 ; PIN_AF14 ; 78      ; Global Clock         ; GCLK6            ; --                        ;
 +----------+----------+---------+----------------------+------------------+---------------------------+
 
 
@@ -1882,14 +1912,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------+---------------------------+
 ; Routing Resource Type                       ; Usage                     ;
 +---------------------------------------------+---------------------------+
-; Block interconnects                         ; 2,719 / 289,320 ( < 1 % ) ;
-; C12 interconnects                           ; 17 / 13,420 ( < 1 % )     ;
-; C2 interconnects                            ; 775 / 119,108 ( < 1 % )   ;
-; C4 interconnects                            ; 359 / 56,300 ( < 1 % )    ;
+; Block interconnects                         ; 3,152 / 289,320 ( 1 % )   ;
+; C12 interconnects                           ; 16 / 13,420 ( < 1 % )     ;
+; C2 interconnects                            ; 896 / 119,108 ( < 1 % )   ;
+; C4 interconnects                            ; 437 / 56,300 ( < 1 % )    ;
 ; DQS bus muxes                               ; 0 / 25 ( 0 % )            ;
 ; DQS-18 I/O buses                            ; 0 / 25 ( 0 % )            ;
 ; DQS-9 I/O buses                             ; 0 / 25 ( 0 % )            ;
-; Direct links                                ; 457 / 289,320 ( < 1 % )   ;
+; Direct links                                ; 433 / 289,320 ( < 1 % )   ;
 ; Global clocks                               ; 1 / 16 ( 6 % )            ;
 ; HPS SDRAM PLL inputs                        ; 0 / 1 ( 0 % )             ;
 ; HPS SDRAM PLL outputs                       ; 0 / 1 ( 0 % )             ;
@@ -1945,12 +1975,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; HPS_INTERFACE_TPIU_TRACE_INPUTs             ; 0 / 2 ( 0 % )             ;
 ; HPS_INTERFACE_TPIU_TRACE_OUTPUTs            ; 0 / 33 ( 0 % )            ;
 ; Horizontal periphery clocks                 ; 0 / 72 ( 0 % )            ;
-; Local interconnects                         ; 438 / 84,580 ( < 1 % )    ;
+; Local interconnects                         ; 493 / 84,580 ( < 1 % )    ;
 ; Quadrant clocks                             ; 0 / 66 ( 0 % )            ;
-; R14 interconnects                           ; 32 / 12,676 ( < 1 % )     ;
-; R14/C12 interconnect drivers                ; 40 / 20,720 ( < 1 % )     ;
-; R3 interconnects                            ; 1,047 / 130,992 ( < 1 % ) ;
-; R6 interconnects                            ; 1,210 / 266,960 ( < 1 % ) ;
+; R14 interconnects                           ; 74 / 12,676 ( < 1 % )     ;
+; R14/C12 interconnect drivers                ; 79 / 20,720 ( < 1 % )     ;
+; R3 interconnects                            ; 1,209 / 130,992 ( < 1 % ) ;
+; R6 interconnects                            ; 2,059 / 266,960 ( < 1 % ) ;
 ; Spine clocks                                ; 2 / 360 ( < 1 % )         ;
 ; Wire stub REs                               ; 0 / 15,858 ( 0 % )        ;
 +---------------------------------------------+---------------------------+
@@ -2171,33 +2201,40 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------+----------------------+-------------------+
 ; Source Clock(s) ; Destination Clock(s) ; Delay Added in ns ;
 +-----------------+----------------------+-------------------+
-; CLOCK_50        ; CLOCK_50             ; 2.3               ;
+; CLOCK_50        ; CLOCK_50             ; 6.9               ;
 +-----------------+----------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
 
 
-+-----------------------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Details                               ;
-+-------------------------------+-------------------------+-------------------+
-; Source Register               ; Destination Register    ; Delay Added in ns ;
-+-------------------------------+-------------------------+-------------------+
-; spart:spart0|txbuf[1]         ; spart:spart0|txbuf[0]   ; 0.289             ;
-; spart:spart0|txbuf[7]         ; spart:spart0|txbuf[6]   ; 0.263             ;
-; spart:spart0|txbuf[5]         ; spart:spart0|txbuf[4]   ; 0.263             ;
-; spart:spart0|txbuf[3]         ; spart:spart0|txbuf[2]   ; 0.263             ;
-; spart:spart0|tx_cnt[0]        ; spart:spart0|tx_cnt[2]  ; 0.260             ;
-; spart:spart0|txbuf[6]         ; spart:spart0|txbuf[5]   ; 0.247             ;
-; spart:spart0|txbuf[4]         ; spart:spart0|txbuf[3]   ; 0.247             ;
-; spart:spart0|txbuf[2]         ; spart:spart0|txbuf[1]   ; 0.247             ;
-; driver:driver0|state.INIT     ; spart:spart0|db_high[5] ; 0.185             ;
-; SW[8]                         ; spart:spart0|db_high[5] ; 0.149             ;
-; SW[9]                         ; spart:spart0|db_high[5] ; 0.149             ;
-; driver:driver0|state.LD_BR_HI ; spart:spart0|db_high[5] ; 0.149             ;
-; driver:driver0|state.NORMAL   ; spart:spart0|db_high[5] ; 0.149             ;
-; spart:spart0|tx_cnt[3]        ; spart:spart0|tx_cnt[2]  ; 0.030             ;
-+-------------------------------+-------------------------+-------------------+
-Note: This table only shows the top 14 path(s) that have the largest delay added for hold.
++----------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                                    ;
++--------------------------------+-----------------------------+-------------------+
+; Source Register                ; Destination Register        ; Delay Added in ns ;
++--------------------------------+-----------------------------+-------------------+
+; spart:spart0|down_count[6]     ; spart:spart0|tx_cnt[3]      ; 0.968             ;
+; spart:spart0|down_count[9]     ; spart:spart0|tx_cnt[3]      ; 0.887             ;
+; spart:spart0|down_count[8]     ; spart:spart0|tx_cnt[3]      ; 0.823             ;
+; spart:spart0|tx_cnt[2]         ; spart:spart0|tx_cnt[3]      ; 0.339             ;
+; driver:driver0|state.LD_BR_HI  ; driver:driver0|store[1]     ; 0.339             ;
+; spart:spart0|tx_cnt[0]         ; spart:spart0|tx_cnt[1]      ; 0.334             ;
+; spart:spart0|tx_cnt[3]         ; spart:spart0|tx_cnt[2]      ; 0.328             ;
+; spart:spart0|tx_cnt[1]         ; spart:spart0|tx_cnt[3]      ; 0.290             ;
+; driver:driver0|state.NORMAL    ; spart:spart0|tx_cnt[0]      ; 0.263             ;
+; driver:driver0|br_cfg_old[1]   ; driver:driver0|state.NORMAL ; 0.253             ;
+; spart:spart0|txbuf[1]          ; spart:spart0|txbuf[0]       ; 0.208             ;
+; spart:spart0|down_count[7]     ; spart:spart0|tx_cnt[3]      ; 0.176             ;
+; spart:spart0|down_count[5]     ; spart:spart0|tx_cnt[3]      ; 0.176             ;
+; spart:spart0|down_count[4]     ; spart:spart0|tx_cnt[3]      ; 0.176             ;
+; spart:spart0|txbuf[4]          ; spart:spart0|txbuf[3]       ; 0.145             ;
+; spart:spart0|txbuf[6]          ; spart:spart0|txbuf[5]       ; 0.076             ;
+; spart:spart0|txbuf[7]          ; spart:spart0|txbuf[6]       ; 0.049             ;
+; spart:spart0|txbuf[2]          ; spart:spart0|txbuf[1]       ; 0.035             ;
+; driver:driver0|store[1]        ; driver:driver0|store[1]     ; 0.013             ;
+; driver:driver0|state.LD_BR_LO  ; driver:driver0|store[1]     ; 0.013             ;
+; driver:driver0|state.SND_BR_LO ; driver:driver0|store[1]     ; 0.013             ;
++--------------------------------+-----------------------------+-------------------+
+Note: This table only shows the top 21 path(s) that have the largest delay added for hold.
 
 
 +-----------------+
@@ -2213,7 +2250,7 @@ Warning (292013): Feature LogicLock is only available with a valid subscription 
 Warning (15714): Some pins have incomplete I/O assignments. Refer to the I/O Assignment Warnings report for details
 Info (184020): Starting Fitter periphery placement operations
 Info (11191): Automatically promoted 1 clock (1 global)
-    Info (11162): CLOCK_50~inputCLKENA0 with 45 fanout uses global clock CLKCTRL_G6
+    Info (11162): CLOCK_50~inputCLKENA0 with 60 fanout uses global clock CLKCTRL_G6
 Info (184021): Fitter periphery placement operations ending: elapsed time is 00:00:00
 Info (176233): Starting register packing
 Info (332104): Reading SDC File: 'lab1_spart.SDC'
@@ -2248,17 +2285,17 @@ Info (176235): Finished register packing
 Info (11798): Fitter preparation operations ending: elapsed time is 00:00:11
 Info (170189): Fitter placement preparation operations beginning
 Info (14951): The Fitter is using Advanced Physical Optimization.
-Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:12
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:11
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:02
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 9% of the available device resources in the region that extends from location X56_Y0 to location X66_Y10
+    Info (170196): Router estimated peak interconnect usage is 6% of the available device resources in the region that extends from location X33_Y11 to location X44_Y22
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:06
-Info (11888): Total time spent on timing analysis during the Fitter is 1.40 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:08
+Info (11888): Total time spent on timing analysis during the Fitter is 1.59 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -2303,10 +2340,10 @@ Warning (169064): Following 36 pins have no output enable or a GND or VCC output
     Info (169065): Pin GPIO[5] has a permanently disabled output enable File: C:/Users/ECE_STUDENT/Documents/ece554p1/lab1_spart.v Line: 33
 Info (144001): Generated suppressed messages file C:/Users/ECE_STUDENT/Documents/ece554p1/lab1_spart.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 16 warnings
-    Info: Peak virtual memory: 6848 megabytes
-    Info: Processing ended: Thu Sep 19 18:29:44 2019
-    Info: Elapsed time: 00:00:59
-    Info: Total CPU time (on all processors): 00:02:40
+    Info: Peak virtual memory: 6849 megabytes
+    Info: Processing ended: Thu Sep 19 19:04:54 2019
+    Info: Elapsed time: 00:01:02
+    Info: Total CPU time (on all processors): 00:02:50
 
 
 +----------------------------+

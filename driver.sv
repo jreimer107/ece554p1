@@ -21,7 +21,7 @@ module driver(
     input clk,
     input rst,
     input [1:0] br_cfg,
-    output iocs,
+    output reg iocs,
     output reg iorw,
     input rda,
     input tbr,
@@ -32,10 +32,10 @@ module driver(
 	reg [1:0] br_cfg_old;
 	reg [15:0] br;
 	reg [7:0] store;
-	wire [7:0] nxt_store;
+	reg [7:0] nxt_store;
 	reg [1:0] br_load_cnt;
 	
-	typedef enum reg [1:0] {INIT, LD_BR_HI, LD_BR_LO, NORMAL} state_t;
+	typedef enum reg [2:0] {INIT, LD_BR_HI, LD_BR_LO, SND_BR_LO, NORMAL} state_t;
 	state_t state, nxt_state;
 	
 	//State ff
@@ -53,14 +53,14 @@ module driver(
 		else begin
 			br_cfg_old <= br_cfg;
 			store <= nxt_store;
+		end
 	end
 	
-	reg write_databus;
 	always_comb begin
 		nxt_state = INIT;
-		databus_staging = 8'hff;
+		nxt_store = 8'hff;
 		ioaddr = 0;
-		write_databus = 0;
+		iocs = 0;
 		iorw = 1;
 		
 		//Determine br from br_cfg
@@ -85,17 +85,22 @@ module driver(
 			end
 			
 			LD_BR_HI: begin
-				databus_staging = br[15:8];
-				ioaddr = 3;
-				write_databus = 1;
+				nxt_store = br[15:8];
 				nxt_state = LD_BR_LO;
 			end
 			
 			LD_BR_LO: begin
-				databus_staging = br[7:0];
+				nxt_store = br[7:0];
+				ioaddr = 3;
+				iocs = 1;
+				nxt_state = SND_BR_LO;
+			end
+			
+			SND_BR_LO: begin
 				ioaddr = 2;
-				write_databus = 1;
+				iocs = 1;
 				nxt_state = NORMAL;
+				nxt_store = 8'hff;
 			end
 			
 			NORMAL: begin
@@ -107,13 +112,13 @@ module driver(
 				if (rda) begin
 					ioaddr = 0;
 					iorw = 1;
-					databus_staging = databus;
+					nxt_store = databus;
 				end
 
-				
-				if (tbr && rda) begin
-					ioaddr = 2'b00;
+				if (tbr) begin
+					ioaddr = 0;
 					iorw = 0;
+					iocs = 1;
 				end
 			end
 			
@@ -121,6 +126,6 @@ module driver(
 	end
 
 
-	assign databus = write_databus ? databus_staging : 8'bz;
+	assign databus = iocs ? store : 8'bz;
 
 endmodule
