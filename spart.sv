@@ -22,7 +22,7 @@ module spart(
     input rst,
     input iocs,
     input iorw,
-    output rda,
+    output reg rda,
     output tbr,
     input [1:0] ioaddr,
     inout [7:0] databus,
@@ -32,28 +32,65 @@ module spart(
 
 	wire spart_reg;
 
-	reg [7:0] db_high;
-	reg [7:0] db_low;
+	reg [7:0] db_high, db_low;
 	reg [8:0] txbuf;
-	reg [7:0] rxbuf;
+	reg [8:0] rxbuf;
 	reg [7:0] status;
 	reg [15:0] down_count;
 	reg [3:0] enable_count;
 
-	reg [3:0] tx_cnt;
+	reg [3:0] tx_cnt, rx_cnt;
 	assign tbr = tx_cnt == 0;
 
 	assign write_databus = iorw == 0;
 	assign txd = txbuf[0];
-	assign rda = 1;
+	
+	typedef enum reg [1:0] {START, READ, STOP} rx_state_t;
+	rx_state_t rx_state, nxt_rx_state;
+	
+	always_ff @(posedge clk, posedge rst) begin
+		if (rst) begin
+			rx_state <= START;
+		end
+		else begin
+			rx_state <= nxt_rx_state;
+		end
+	end
+	
+	always_comb begin
+		nxt_rx_state = START;
+		rda = 1;
+		case(rx_state)
+			START: begin
+				if (rx_cnt == 10 && rxbuf[1] == 1 && rxbuf[0] == 0) begin
+					rda = 0;
+					nxt_rx_state = READ;
+				end
+			end
+			
+			READ: begin
+				nxt_rx_state = rx_cnt == 0 ? STOP : READ; 
+				rda = 0;
+			end
+			
+			STOP: begin
+				if (rxbuf[0] != 1) begin
+					nxt_rx_state = STOP;
+					rda = 0;
+				end
+			end
+		endcase
+	end
+	
 	
 	//reg enable;
 	always @(posedge clk, posedge rst) begin
 		//enable <= 0;
 		if (rst) begin
 			txbuf <= 9'h1ff;
-			rxbuf <= 8'h21;
+			rxbuf <= 8'h42;
 			tx_cnt <= 4'hf;
+			rx_cnt <= 10;
 			enable_count <= 4'hf;
 			db_high <= 8'h01;
 			db_low <= 8'h44;
@@ -72,6 +109,13 @@ module spart(
 				if (enable_count != 0) begin
 					enable_count <= enable_count - 1;
 				end
+				else if (enable_count == 8) begin
+					rxbuf <= {rxbuf[7:0], rxd};
+					if (rx_state == READ)
+						rx_cnt <= rx_cnt == 0 ? 0 : rx_cnt - 1;
+					else
+						rx_cnt = 10;
+				end
 				else begin
 					enable_count <= 4'hf;
 					txbuf <= {1'b1, txbuf[8:1]};
@@ -82,7 +126,7 @@ module spart(
 			case (ioaddr)
 				2'b00: begin
 					if (iorw == 1'b0) begin
-						txbuf <= {rxbuf, 1'b0};
+						txbuf <= {rxbuf[8:1], 1'b0};
 						tx_cnt <= 11;
 					end 
 					else begin
