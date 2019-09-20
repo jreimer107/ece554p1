@@ -8,6 +8,9 @@ wire [35:0] GPIO;
 reg clk;
 reg rst;
 
+reg rxd;
+assign GPIO[5] = rxd;
+
 assign KEY = {3'b111, rst};
 
 lab1_spart DUT(.CLOCK_50(clk), .CLOCK2_50(clk), .CLOCK3_50(clk), .CLOCK4_50(clk),
@@ -18,11 +21,34 @@ initial begin
 	clk = 0;
 	rst = 0;
 	SW = 10'h100;
+	rxd = 1;
 	repeat(2) @(negedge clk)
 	rst = 1;
-	//repeat(7) @(negedge clk)
+	rxd = 1;
 	#100
 	SW = 10'h300;
+	repeat (5184) @(negedge clk)
+	rxd = 0;
+	repeat (5184) @(negedge clk)
+	rxd = 0;
+	repeat (5184) @(negedge clk)
+	rxd = 0;
+	repeat (5184) @(negedge clk)
+	rxd = 1;
+	repeat (5184) @(negedge clk)
+	rxd = 0;
+	repeat (5184) @(negedge clk)
+	rxd = 0;
+	repeat (5184) @(negedge clk)
+	rxd = 0;
+	repeat (5184) @(negedge clk)
+	rxd = 0;
+	repeat (5184) @(negedge clk)
+	rxd = 1;
+	repeat (5184) @(negedge clk)
+	rxd = 1;
+	repeat (5184) @(negedge clk)
+	rxd = 1;
 end
 
 always

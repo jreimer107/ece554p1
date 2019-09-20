@@ -33,7 +33,6 @@ module driver(
 	reg [15:0] br;
 	reg [7:0] store;
 	reg [7:0] nxt_store;
-	reg [1:0] br_load_cnt;
 	
 	typedef enum reg [2:0] {INIT, LD_BR_HI, LD_BR_LO, SND_BR_LO, NORMAL} state_t;
 	state_t state, nxt_state;
@@ -58,7 +57,7 @@ module driver(
 	
 	always_comb begin
 		nxt_state = INIT;
-		nxt_store = 8'hff;
+		nxt_store = store;
 		ioaddr = 1;
 		iocs = 0;
 		iorw = 1;
@@ -114,9 +113,10 @@ module driver(
 					nxt_store = databus;
 				end
 
-				if (tbr) begin
+				if (tbr && store != 8'hff) begin
 					iorw = 0;
 					iocs = 1;
+					nxt_store = 8'hff;
 				end
 			end
 			

@@ -30,7 +30,6 @@ module spart(
     input rxd
     );
 
-	wire spart_reg;
 
 	reg [7:0] db_high, db_low;
 	reg [8:0] txbuf;
@@ -42,7 +41,6 @@ module spart(
 	reg [3:0] tx_cnt, rx_cnt;
 	assign tbr = tx_cnt == 0;
 
-	assign write_databus = iorw == 0;
 	assign txd = txbuf[0];
 	
 	typedef enum reg [1:0] {START, READ, STOP} rx_state_t;
@@ -59,25 +57,24 @@ module spart(
 	
 	always_comb begin
 		nxt_rx_state = START;
-		rda = 1;
+		rda = 0;
 		case(rx_state)
 			START: begin
-				if (rx_cnt == 10 && rxbuf[1] == 1 && rxbuf[0] == 0) begin
-					rda = 0;
+				if (rx_cnt == 9 && rxbuf[1] == 1 && rxbuf[0] == 0) begin
 					nxt_rx_state = READ;
 				end
 			end
 			
 			READ: begin
-				nxt_rx_state = rx_cnt == 0 ? STOP : READ; 
-				rda = 0;
+				nxt_rx_state = rx_cnt == 0 ? STOP : READ;
 			end
 			
 			STOP: begin
 				if (rxbuf[0] != 1) begin
 					nxt_rx_state = STOP;
-					rda = 0;
 				end
+				else
+					rda = 1;
 			end
 		endcase
 	end
@@ -88,9 +85,9 @@ module spart(
 		//enable <= 0;
 		if (rst) begin
 			txbuf <= 9'h1ff;
-			rxbuf <= 8'h42;
+			rxbuf <= 9'h1ff;
 			tx_cnt <= 4'hf;
-			rx_cnt <= 10;
+			rx_cnt <= 9;
 			enable_count <= 4'hf;
 			db_high <= 8'h01;
 			db_low <= 8'h44;
@@ -107,14 +104,14 @@ module spart(
 			else begin
 				down_count <= {db_high, db_low};
 				if (enable_count != 0) begin
+					if (enable_count == 8) begin
+						rxbuf <= {rxbuf[7:0], rxd};
+						if (rx_state == READ)
+							rx_cnt <= rx_cnt == 0 ? 0 : rx_cnt - 1;
+						else
+							rx_cnt = 9;
+					end
 					enable_count <= enable_count - 1;
-				end
-				else if (enable_count == 8) begin
-					rxbuf <= {rxbuf[7:0], rxd};
-					if (rx_state == READ)
-						rx_cnt <= rx_cnt == 0 ? 0 : rx_cnt - 1;
-					else
-						rx_cnt = 10;
 				end
 				else begin
 					enable_count <= 4'hf;
@@ -126,7 +123,7 @@ module spart(
 			case (ioaddr)
 				2'b00: begin
 					if (iorw == 1'b0) begin
-						txbuf <= {rxbuf[8:1], 1'b0};
+						txbuf <= {databus, 1'b0};
 						tx_cnt <= 11;
 					end 
 					else begin
@@ -148,6 +145,6 @@ module spart(
 		end
 	end
  
-	assign databus = write_databus & ~iocs ? rxbuf : 8'hzz;
+	assign databus = rda & ~iocs ? rxbuf : 8'hzz;
 
 endmodule
