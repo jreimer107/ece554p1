@@ -47,7 +47,7 @@ module driver(
 	always_ff @(posedge clk, posedge rst) begin
 		if (rst) begin
 			br_cfg_old <= 2'b01;
-			store <= 0;
+			store <= 8'hff;
 		end
 		else begin
 			br_cfg_old <= br_cfg;

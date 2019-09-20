@@ -79,10 +79,7 @@ module spart(
 		endcase
 	end
 	
-	
-	//reg enable;
 	always @(posedge clk, posedge rst) begin
-		//enable <= 0;
 		if (rst) begin
 			txbuf <= 9'h1ff;
 			rxbuf <= 9'h1ff;
@@ -145,6 +142,6 @@ module spart(
 		end
 	end
  
-	assign databus = rda & ~iocs ? rxbuf : 8'hzz;
+	assign databus = rda & ~iocs ? rxbuf[8:1] : 8'hzz;
 
 endmodule

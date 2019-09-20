@@ -27,27 +27,26 @@ initial begin
 	rxd = 1;
 	#100
 	SW = 10'h300;
-	repeat (5184) @(negedge clk)
+	#500000
+	#51840
 	rxd = 0;
-	repeat (5184) @(negedge clk)
+	#51840
 	rxd = 0;
-	repeat (5184) @(negedge clk)
+	#51840
 	rxd = 0;
-	repeat (5184) @(negedge clk)
+	#51840
 	rxd = 1;
-	repeat (5184) @(negedge clk)
+	#51840
 	rxd = 0;
-	repeat (5184) @(negedge clk)
+	#51840
 	rxd = 0;
-	repeat (5184) @(negedge clk)
+	#51840
 	rxd = 0;
-	repeat (5184) @(negedge clk)
+	#51840
 	rxd = 0;
-	repeat (5184) @(negedge clk)
+	#51840
 	rxd = 1;
-	repeat (5184) @(negedge clk)
-	rxd = 1;
-	repeat (5184) @(negedge clk)
+	#51840
 	rxd = 1;
 end
 
